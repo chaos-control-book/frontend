@@ -1,0 +1,24 @@
+@import 'mixins';
+
+.container {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0.625rem var(--space-2);
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  height: 100%;
+  margin: 0 0 0 auto;
+  padding: 0;
+
+  li {
+    @include russo-font();
+
+    list-style-type: none;
+    color: #6e8291;
+  }
+}
