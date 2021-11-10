@@ -1,3 +1,48 @@
+@use 'sass:math';
+
 /*========================
 FUNCTIONS
 =========================*/
+
+@function pow($x, $n) {
+  $ret: 1;
+
+  @if $n >= 0 {
+    @for $i from 1 through $n {
+      $ret: $ret * $x;
+    }
+  } @else {
+    @for $i from $n to 0 {
+      $ret: math.div($ret, $x);
+    }
+  }
+
+  @return $ret;
+}
+
+@function to-fixed($float, $digits: 2) {
+  $sass-precision: 5;
+
+  @if $digits > $sass-precision {
+    @warn "Sass sets default precision to #{$sass-precision} digits, and there is no way to change that for now."
+    + "The returned number will have #{$sass-precision} digits, even if you asked for `#{$digits}`."
+    + "See https://github.com/sass/sass/issues/1122 for further informations.";
+  }
+
+  $pow: pow(10, $digits);
+  @return math.div(round($float * $pow), $pow);
+}
+
+@function rem($size, $baseFontSize: 16px) {
+  $remSize: math.div($size, $baseFontSize);
+
+  @return #{$remSize}rem;
+}
+
+@function space($size, $factor: 8px, $divisor: 16px, $precision: 3) {
+  $remSize: $size * $factor;
+  $remSize: math.div($remSize, $divisor);
+  $remSize: to-fixed($remSize, $precision);
+
+  @return #{$remSize}rem;
+}

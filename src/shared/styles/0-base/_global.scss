@@ -9,10 +9,18 @@ LAYOUT AND COMMON STYLES
 
 html {
   min-width: 320px;
+  font-family: 'Russo One', 'Roboto', sans-serif;
   overflow-x: hidden;
+  background-color: var(--color-root-base);
 }
 
 body,
 #__next {
   min-height: 100vh;
+}
+
+.icon {
+  fill: currentColor;
+  pointer-events: none;
+  user-select: none;
 }

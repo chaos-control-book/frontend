@@ -1,10 +1,17 @@
 import Head from 'next/head';
 
 import cx from 'classnames';
-import { getLayout } from '~shared/layouts/main-layout';
+import { motion } from 'framer-motion';
 
-import styles from '~shared/styles/Home.module.scss';
+import { getMainLayout } from '~shared/layouts/main-layout';
+import classes from '~shared/styles/Home.module.scss';
 import { Link } from '~shared/ui';
+
+const variants = {
+  hidden: { opacity: 0 },
+  enter: { opacity: 1 },
+  exit: { opacity: 0 },
+};
 
 // eslint-disable-next-line import/no-default-export
 export default function HomePage() {
@@ -16,10 +23,17 @@ export default function HomePage() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className={styles.container}>
+      <motion.div
+        className={classes.container}
+        initial="hidden"
+        animate="enter"
+        exit="exit"
+        variants={variants}
+        transition={{ type: 'linear' }}
+      >
         <Link href="/" activeClassName="">
           <a
-            className={cx([styles.area, styles.left])}
+            className={cx([classes.area, classes.left])}
             style={{
               backgroundColor: 'rgba(177, 177, 177, 0.2)',
             }}
@@ -28,11 +42,11 @@ export default function HomePage() {
           </a>
         </Link>
 
-        <span className={styles.separator}>или</span>
+        <span className={classes.separator}>или</span>
 
         <Link href="/" activeClassName="">
           <a
-            className={cx([styles.area, styles.right])}
+            className={cx([classes.area, classes.right])}
             style={{
               backgroundColor: 'rgba(196, 196, 196, 0.2)',
             }}
@@ -40,9 +54,9 @@ export default function HomePage() {
             <span>Атмосфера</span>
           </a>
         </Link>
-      </div>
+      </motion.div>
     </>
   );
 }
 
-HomePage.getLayout = getLayout;
+HomePage.getLayout = getMainLayout;

@@ -1,0 +1,59 @@
+@import 'mixins', 'functions';
+
+.container {
+  @include button-reset();
+  @include animation();
+
+  $root: container;
+
+  min-width: space(5);
+  min-height: space(5);
+  padding: space(1) space(1.5);
+  border: 0;
+  font-size: 1rem;
+  color: var(--color-text-base);
+
+  &:hover {
+    color: var(--color-text-tertiary);
+  }
+
+  &:active {
+    transition-duration: 0ms;
+    color: var(--color-text-accent);
+  }
+
+  &_onlyIcon {
+    padding: space(1);
+  }
+
+  &_text {
+    background-color: transparent;
+    border-color: transparent;
+  }
+
+  &_filled {
+    background-color: var(--color-complement);
+    border-color: var(--color-complement);
+  }
+
+  &__text {
+    pointer-events: none;
+  }
+
+  &__endIcon,
+  &__startIcon {
+    display: inline-flex;
+
+    .#{$root}_onlyIcon & {
+      margin: 0;
+    }
+  }
+
+  &__endIcon {
+    margin-inline-start: space(1);
+  }
+
+  &__startIcon {
+    margin-inline-end: space(1);
+  }
+}

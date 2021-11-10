@@ -1,6 +1,7 @@
-import styles from './header.module.scss';
-import { Link, Navigation } from '~shared/ui';
+import { Logo, Navigation } from '~shared/ui';
 import { LikeIcon } from '~shared/ui/icons';
+
+import classes from './header.module.scss';
 
 const routes = [
   {
@@ -18,14 +19,12 @@ const routes = [
 ];
 
 export const Header = (): JSX.Element => (
-  <header className={styles.container}>
-    <Link href="/">
-      <a className={styles.logo}>Контроль Хаоса</a>
-    </Link>
+  <header className={classes.container}>
+    <Logo />
 
     <Navigation routes={routes} />
 
-    <button type="button" className={styles.like}>
+    <button type="button" className={classes.like}>
       <LikeIcon />
     </button>
   </header>

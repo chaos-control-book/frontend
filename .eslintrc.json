@@ -9,12 +9,28 @@
     "plugin:react/jsx-runtime",
     "prettier"
   ],
-  "plugins": ["prettier"],
+  "plugins": ["eslint-plugin-import-helpers", "prettier"],
   "rules": {
+    "import-helpers/order-imports": [
+      "error",
+      {
+        "groups": [
+          "/^react/",
+          "/^next/",
+          "module",
+          "/^~widgets/",
+          "/^~shared/",
+          ["parent", "sibling", "index"]
+        ],
+        "newlinesBetween": "always",
+        "alphabetize": { "order": "asc", "ignoreCase": true }
+      }
+    ],
     "prettier/prettier": ["error"],
     "import/prefer-default-export": 0,
     "import/no-default-export": ["error"],
     "react/require-default-props": 0,
+    "react/jsx-no-undef": 0,
     "jsx-a11y/anchor-is-valid": 0
   }
 }

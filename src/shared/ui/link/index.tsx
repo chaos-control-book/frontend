@@ -1,9 +1,11 @@
-import NextLink, { LinkProps as NextLinkProps } from 'next/link';
 import { Children, cloneElement, ReactElement } from 'react';
+
+import NextLink, { LinkProps as NextLinkProps } from 'next/link';
 import { useRouter } from 'next/router';
 
 import cx from 'classnames';
-import styles from './link.module.scss';
+
+import classes from './link.module.scss';
 
 export interface LinkProps extends NextLinkProps {
   activeClassName?: string;
@@ -12,7 +14,7 @@ export interface LinkProps extends NextLinkProps {
 
 export const Link = ({
   children,
-  activeClassName = styles.active,
+  activeClassName = classes.active,
   ...props
 }: LinkProps): JSX.Element => {
   const { asPath } = useRouter();
@@ -28,7 +30,7 @@ export const Link = ({
     // eslint-disable-next-line react/jsx-props-no-spreading
     <NextLink passHref {...props}>
       {cloneElement(child, {
-        className: cx([styles.default, className]) || null,
+        className: cx([classes.default, className]) || null,
       })}
     </NextLink>
   );

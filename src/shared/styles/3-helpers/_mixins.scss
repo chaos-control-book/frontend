@@ -2,8 +2,41 @@
 MIXINS
 =========================*/
 
-@mixin russo-font() {
+@mixin button-reset() {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
+  min-height: 40px;
+  outline: 0;
+  border-width: 1px;
+  border-style: solid;
+  border-color: transparent;
+  cursor: pointer;
+  user-select: none;
+  vertical-align: middle;
+  appearance: none;
+  font-size: 14px;
+  text-decoration: none;
+  overflow: hidden;
+  -webkit-tap-highlight-color: transparent;
+}
+
+@mixin russo-font($fontSize: 1rem, $lineHeight: 1.25) {
   font-family: 'Russo One', sans-serif;
-  font-size: 1rem;
-  line-height: 1.25;
+  font-size: $fontSize;
+  line-height: $lineHeight;
+}
+
+@mixin animation(
+  $property: all,
+  $duration: 150ms,
+  $timing: ease-in-out,
+  $delay: 0ms
+) {
+  transition-property: $property;
+  transition-duration: $duration;
+  transition-timing-function: $timing;
+  transition-delay: $delay;
 }

@@ -1,6 +1,7 @@
 /.next
 /build
 /node_modules
+__generated__
 /*.js
 /*.ts
 /*.json

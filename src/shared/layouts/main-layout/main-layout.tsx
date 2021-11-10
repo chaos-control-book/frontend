@@ -1,12 +1,17 @@
-import { FC } from 'react';
+import { ReactElement } from 'react';
 
 import { Header, Footer } from '~widgets';
 
-import styles from './main-layout.module.scss';
 import { ScreenFrame } from '~shared/ui';
 
-export const MainLayout: FC = ({ children }) => (
-  <div className={styles.container}>
+import classes from './main-layout.module.scss';
+
+interface Props {
+  children: ReactElement;
+}
+
+export const MainLayout = ({ children }: Props): JSX.Element => (
+  <div className={classes.container}>
     <ScreenFrame contentTopArea={<Header />} contentBottomArea={<Footer />}>
       <main>{children}</main>
     </ScreenFrame>

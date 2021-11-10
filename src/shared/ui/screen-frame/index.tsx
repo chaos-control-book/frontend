@@ -1,7 +1,8 @@
 import { CSSProperties, ReactNode } from 'react';
+
 import cx from 'classnames';
 
-import styles from './screen-frame.module.scss';
+import classes from './screen-frame.module.scss';
 
 interface Props {
   contentTopArea?: ReactNode;
@@ -18,38 +19,42 @@ export const ScreenFrame = ({
   className,
   children,
 }: Props): JSX.Element => (
-  <div className={cx([[className], styles.container])} style={style}>
-    <div className={styles.topArea}>{contentTopArea}</div>
+  <div className={cx([[className], classes.container])} style={style}>
+    <div className={classes.topArea}>{contentTopArea}</div>
 
-    <div className={styles.rightArea} />
+    <div className={classes.rightArea} />
 
-    <div className={styles.bottomArea}>{contentBottomArea}</div>
+    <div className={classes.bottomArea}>{contentBottomArea}</div>
 
-    <div className={styles.leftArea} />
+    <div className={classes.leftArea} />
 
-    <div className={styles.content}>
-      <div
-        className={cx([styles.item, styles.topCrosshair, styles.leftCrosshair])}
-      />
+    <div className={classes.content}>
       <div
         className={cx([
-          styles.item,
-          styles.topCrosshair,
-          styles.rightCrosshair,
+          classes.item,
+          classes.topCrosshair,
+          classes.leftCrosshair,
         ])}
       />
       <div
         className={cx([
-          styles.item,
-          styles.bottomCrosshair,
-          styles.rightCrosshair,
+          classes.item,
+          classes.topCrosshair,
+          classes.rightCrosshair,
         ])}
       />
       <div
         className={cx([
-          styles.item,
-          styles.bottomCrosshair,
-          styles.leftCrosshair,
+          classes.item,
+          classes.bottomCrosshair,
+          classes.rightCrosshair,
+        ])}
+      />
+      <div
+        className={cx([
+          classes.item,
+          classes.bottomCrosshair,
+          classes.leftCrosshair,
         ])}
       />
 

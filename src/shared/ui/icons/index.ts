@@ -1,1 +1,11 @@
 export { LikeIcon } from './LikeIcon';
+export { TimeIcon } from './TimeIcon';
+export { TimeFilledIcon } from './TimeFilledIcon';
+export { LocationIcon } from './LocationIcon';
+export { BookmarkIcon } from './BookmarkIcon';
+export { BookmarkFilledIcon } from './BookmarkFilledIcon';
+export { DayIcon } from './DayIcon';
+export { ChevronTopIcon } from './ChevronTopIcon';
+export { ChevronRightIcon } from './ChevronRightIcon';
+export { ChevronDownIcon } from './ChevronDownIcon';
+export { ChevronLeftIcon } from './ChevronLeftIcon';

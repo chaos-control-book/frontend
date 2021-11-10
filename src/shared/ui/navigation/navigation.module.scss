@@ -1,4 +1,4 @@
-@import 'mixins';
+@import 'mixins', 'functions';
 
 .container {
   display: flex;
@@ -18,15 +18,11 @@
 }
 
 .list {
-  margin: 0;
-  padding: 0;
   display: flex;
   align-items: center;
-  gap: var(--space-5);
+  gap: space(5);
 }
 
 .item {
   @include russo-font();
-
-  list-style-type: none;
 }

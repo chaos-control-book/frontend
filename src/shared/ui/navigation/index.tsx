@@ -1,7 +1,10 @@
 import { CSSProperties } from 'react';
+
 import cx from 'classnames';
-import styles from './navigation.module.scss';
+
 import { Link } from '~shared/ui/link';
+
+import classes from './navigation.module.scss';
 
 interface Props {
   routes: Array<{
@@ -20,15 +23,15 @@ export const Navigation = ({
   style,
 }: Props): JSX.Element => (
   <nav
-    className={cx([styles.container, className], {
-      [styles.small]: size === 'small',
-      [styles.medium]: size === 'medium',
+    className={cx([classes.container, className], {
+      [classes.small]: size === 'small',
+      [classes.medium]: size === 'medium',
     })}
     style={style}
   >
-    <ul className={styles.list}>
+    <ul className={classes.list}>
       {routes.map(({ href, label }) => (
-        <li key={label} className={styles.item}>
+        <li key={label} className={classes.item}>
           <Link href={href}>
             <a>{label}</a>
           </Link>

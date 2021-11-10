@@ -1,19 +1,26 @@
 :root {
-  --space-1: 0.5rem; // 8px
-  --space-2: 1rem; // 16px
-  --space-3: 1.5rem; // 24px
-  --space-4: 2rem; // 32px
-  --space-5: 2.5rem; // 40px
-  --space-6: 3rem; // 48px
-  --space-7: 3.5rem; // 56px
-  --space-8: 4rem; // 64px
-  --space-9: 5rem; // 80px
-  --space-10: 8rem; // 128px
-
   --color-white: #ffffff;
   --color-black: #000000;
-  --color-border: #21282a;
-  --color-accent: #46d0fb;
+
+  --color-complement: #9646fb;
+
+  --color-root-accent: #46d0fb;
+  --color-root-base: #0b0b0b;
+  --color-root-tertiary: #121212;
+
+  --color-text-accent: #46d0fb;
+  --color-text-base: #f9f9f9;
+  --color-text-faint: #b2d5ee;
+  --color-text-tertiary: #b2d5ee;
+  --color-text-quaternary: #6e8291;
+
+  --color-icon-base: #edeeef;
+  --color-icon-accent: #0ebbf1;
+  --color-icon-faint: #b2d5ee;
+
+  --color-line-base: #21282a;
 
   --header-height: 5rem;
+
+  --sidebar-width: minmax(20rem, 1fr);
 }

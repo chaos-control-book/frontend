@@ -1,0 +1,107 @@
+@import 'mixins', 'functions';
+
+.reader {
+  position: relative;
+}
+
+.head {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: space(10);
+  padding-top: space(16);
+  padding-bottom: space(6);
+  background-color: var(--color-root-base);
+  @include animation(padding, 300ms);
+
+  &_mini {
+    padding-top: space(3.5);
+    padding-bottom: space(3.5);
+  }
+
+  &__actions {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: space(1.5);
+    padding: space(2.5) space(3);
+  }
+
+  &__breadcrumbs {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    text-align: center;
+  }
+
+  &__img {
+    object-fit: cover;
+  }
+}
+
+.accent {
+  color: var(--color-text-accent);
+}
+
+.body {
+  padding: space(6);
+}
+
+.location {
+  display: flex;
+  align-items: center;
+  margin-bottom: space(2);
+  font-family: 'Roboto', sans-serif;
+}
+
+.locationIcons {
+  display: flex;
+  align-items: center;
+  gap: calc(#{space(1)} / 2);
+  margin-right: space(2);
+  color: var(--color-icon-accent);
+}
+
+.locationText {
+  color: var(--color-text-faint);
+}
+
+.text {
+  font-family: 'Roboto', sans-serif;
+}
+
+.footer {
+  padding: space(9) space(6);
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__left {
+    display: flex;
+    align-items: center;
+  }
+
+  &__share {
+    display: flex;
+    align-items: center;
+    gap: space(0.5);
+    margin-left: space(2);
+  }
+
+  &__copyright {
+    margin-top: space(2.5);
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.625rem;
+    color: var(--color-text-quaternary);
+  }
+}

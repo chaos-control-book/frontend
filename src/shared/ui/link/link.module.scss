@@ -1,7 +1,7 @@
 .default {
-  color: var(--color-white);
+  color: var(--color-text-base);
 
   &.active {
-    color: var(--color-accent);
+    color: var(--color-text-accent);
   }
 }

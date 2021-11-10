@@ -7,6 +7,9 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 /** @type {import('next').NextConfig} */
 const nextConfiguration = {
   reactStrictMode: true,
+  images: {
+    domains: ['localhost'],
+  },
   sassOptions: {
     includePaths: [path.join(__dirname, 'src/shared/styles/3-helpers')],
   },
