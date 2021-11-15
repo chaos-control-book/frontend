@@ -31,7 +31,7 @@ export default function HomePage() {
         variants={variants}
         transition={{ type: 'linear' }}
       >
-        <Link href="/" activeClassName="">
+        <Link href="/read" activeClassName="">
           <a
             className={cx([classes.area, classes.left])}
             style={{
@@ -44,7 +44,7 @@ export default function HomePage() {
 
         <span className={classes.separator}>или</span>
 
-        <Link href="/" activeClassName="">
+        <Link href="/atmosphere" activeClassName="">
           <a
             className={cx([classes.area, classes.right])}
             style={{
