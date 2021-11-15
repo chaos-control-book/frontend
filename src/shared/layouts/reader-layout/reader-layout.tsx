@@ -1,6 +1,6 @@
 import { ReactElement } from 'react';
 
-import { Sidebar } from '~shared/ui';
+import { Sidebar } from '~widgets';
 
 import classes from './reader-layout.module.scss';
 
