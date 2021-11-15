@@ -22,7 +22,7 @@ export const Header = (): JSX.Element => (
   <header className={classes.container}>
     <Logo />
 
-    <Navigation routes={routes} />
+    <Navigation routes={routes} className={classes.nav} />
 
     <button type="button" className={classes.like}>
       <LikeIcon />

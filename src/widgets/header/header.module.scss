@@ -8,6 +8,12 @@
   padding: space(3) space(4);
 }
 
+.nav {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 .like {
   @include grow(1.5);
 
