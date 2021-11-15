@@ -4,10 +4,9 @@ import cx from 'classnames';
 
 import { useChapters } from '~shared/api/chapter';
 import { useWindowScroll } from '~shared/hooks/useWindowScroll';
-import { Button } from '~shared/ui';
+import { Button } from '~shared/ui/button';
 import { ChevronLeftIcon } from '~shared/ui/icons';
 import { Link } from '~shared/ui/link';
-import { Logo } from '~shared/ui/logo';
 
 import classes from './sidebar.module.scss';
 
