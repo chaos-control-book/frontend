@@ -27,10 +27,10 @@
       }
     ],
     "prettier/prettier": ["error"],
-    "import/prefer-default-export": 0,
+    "import/prefer-default-export": "off",
     "import/no-default-export": ["error"],
-    "react/require-default-props": 0,
-    "react/jsx-no-undef": 0,
-    "jsx-a11y/anchor-is-valid": 0
+    "react/require-default-props": "off",
+    "react/jsx-no-undef": "off",
+    "jsx-a11y/anchor-is-valid": "off"
   }
 }
