@@ -1,2 +1,2 @@
-export { useThrottle } from './useThrottle';
 export { useWindowScroll } from './useWindowScroll';
+export { useEventListener } from './useEventListener';
