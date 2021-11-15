@@ -13,7 +13,7 @@ interface Props {
 export const MainLayout = ({ children }: Props): JSX.Element => (
   <div className={classes.container}>
     <ScreenFrame contentTopArea={<Header />} contentBottomArea={<Footer />}>
-      <main>{children}</main>
+      <main className={classes.main}>{children}</main>
     </ScreenFrame>
   </div>
 );
