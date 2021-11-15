@@ -55,11 +55,6 @@
     "simple-git-hooks": "^2.7.0",
     "typescript": "4.4.4"
   },
-  "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
-    ]
-  },
   "simple-git-hooks": {
     "pre-commit": "yarn lint-staged",
     "commit-msg": "yarn commitlint -e"
