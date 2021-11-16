@@ -3,6 +3,8 @@ import { GetServerSideProps } from 'next';
 import cx from 'classnames';
 import Markdown from 'markdown-to-jsx';
 
+import { useKeepReading } from '~features/keep-reading';
+
 import { getChapters } from '~shared/api/chapter';
 import { Chapter } from '~shared/api/types';
 import { useWindowScroll } from '~shared/hooks';
@@ -17,12 +19,6 @@ import {
   LocationIcon,
   TimeIcon,
 } from '~shared/ui/icons';
-
-// const variants = {
-//   hidden: { opacity: 0 },
-//   enter: { opacity: 1 },
-//   exit: { opacity: 0 },
-// };
 
 interface Props {
   nextChapterSlug: Maybe<Chapter['slug']>;
@@ -56,11 +52,13 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 };
 
 // eslint-disable-next-line import/no-default-export
-export default function ReadBookPage({
+export default function ReadChapterPage({
   nextChapterSlug,
   currentChapter,
 }: Props) {
   const { scrollPercentY } = useWindowScroll();
+
+  useKeepReading();
 
   return (
     <section className={classes.reader}>
@@ -147,4 +145,4 @@ export default function ReadBookPage({
   );
 }
 
-ReadBookPage.getLayout = getReaderLayout;
+ReadChapterPage.getLayout = getReaderLayout;

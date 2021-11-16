@@ -1,4 +1,6 @@
-import { Logo, Navigation } from '~shared/ui';
+import { KeepReadingButton } from '~features/keep-reading';
+
+import { Button, Logo, Navigation } from '~shared/ui';
 import { LikeIcon } from '~shared/ui/icons';
 
 import classes from './header.module.scss';
@@ -24,8 +26,10 @@ export const Header = (): JSX.Element => (
 
     <Navigation routes={routes} className={classes.nav} />
 
-    <button type="button" className={classes.like}>
-      <LikeIcon />
-    </button>
+    <div className={classes.actions}>
+      <KeepReadingButton />
+
+      <Button className={classes.actions__like} accessoryStart={<LikeIcon />} />
+    </div>
   </header>
 );
