@@ -15,8 +15,8 @@
       "error",
       {
         "groups": [
-          "/^react/",
-          "/^next/",
+          ["/^react$/", "/^react/.+$/"],
+          ["/^next$/", "/^next/.+$/"],
           "module",
           "/^~widgets/",
           "/^~features/",
