@@ -1,0 +1,9 @@
+@import 'functions';
+
+.default {
+  display: flex;
+  flex-direction: column;
+  gap: space(3);
+  width: 100%;
+  //counter-reset: item;
+}
