@@ -7,10 +7,7 @@ import { Link } from '~shared/ui/link';
 import classes from './navigation.module.scss';
 
 interface Props {
-  routes: Array<{
-    href: string;
-    label: string;
-  }>;
+  routes: Route[];
   size?: 'small' | 'medium';
   className?: string;
   style?: CSSProperties;
@@ -30,9 +27,9 @@ export const Navigation = ({
     style={style}
   >
     <ul className={classes.list}>
-      {routes.map(({ href, label }) => (
+      {routes.map(({ href, label, exact }) => (
         <li key={label} className={classes.item}>
-          <Link href={href}>
+          <Link href={href} exact={exact}>
             <a>{label}</a>
           </Link>
         </li>

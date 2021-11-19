@@ -6,7 +6,7 @@ import { Navigation, ScreenFrame } from '~shared/ui';
 
 import classes from './atmosphere-layout.module.scss';
 
-const routes = [
+const routes: Route[] = [
   {
     href: '/atmosphere/characters',
     label: 'Персонажи',

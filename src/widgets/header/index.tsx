@@ -5,7 +5,7 @@ import { LikeIcon } from '~shared/ui/icons';
 
 import classes from './header.module.scss';
 
-const routes = [
+const routes: Route[] = [
   {
     href: '/read',
     label: 'Книга',
@@ -13,6 +13,7 @@ const routes = [
   {
     href: '/atmosphere',
     label: 'Атмосфера',
+    exact: true,
   },
   {
     href: '/authors',
