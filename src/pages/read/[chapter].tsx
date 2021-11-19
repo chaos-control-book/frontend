@@ -1,7 +1,7 @@
 import { GetServerSideProps } from 'next';
 
 import cx from 'classnames';
-import Markdown from 'markdown-to-jsx';
+import ReactMarkdown, { Components } from 'react-markdown';
 
 import { useKeepReading } from '~features/keep-reading';
 
@@ -51,6 +51,31 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   };
 };
 
+const components: Components = {
+  p: (paragraph) => {
+    const {
+      node: {
+        children: [firstChild],
+      },
+    } = paragraph;
+    if ('tagName' in firstChild && firstChild.tagName === 'img') {
+      const imageProps:
+        | {
+            src?: string;
+            alt?: string;
+          }
+        | undefined = firstChild.properties;
+      return (
+        <p className="image">
+          <Image src={imageProps?.src ?? ''} alt={imageProps?.alt} />
+        </p>
+      );
+    }
+
+    return <p>{paragraph.children}</p>;
+  },
+};
+
 // eslint-disable-next-line import/no-default-export
 export default function ReadChapterPage({
   nextChapterSlug,
@@ -86,11 +111,9 @@ export default function ReadChapterPage({
 
       {currentChapter?.coverImage && (
         <Image
+          className={classes.head__img}
           src={currentChapter.coverImage.formats.large.url}
           alt={currentChapter.coverImage.alternativeText ?? ''}
-          width={currentChapter.coverImage.formats.large.width}
-          height={currentChapter.coverImage.formats.large.height}
-          className={classes.head__img}
         />
       )}
 
@@ -108,7 +131,9 @@ export default function ReadChapterPage({
         )}
 
         {currentChapter?.content && (
-          <Markdown className="wysiwyg">{currentChapter.content}</Markdown>
+          <ReactMarkdown className="wysiwyg" components={components}>
+            {currentChapter.content}
+          </ReactMarkdown>
         )}
       </div>
 
