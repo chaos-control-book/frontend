@@ -10,7 +10,7 @@
 }
 
 .separator {
-  @include russo-font(rem(12px));
+  @include heading-font(rem(12px));
 
   position: absolute;
   top: 50%;
@@ -22,7 +22,7 @@
 }
 
 .area {
-  @include russo-font();
+  @include heading-font();
 
   display: flex;
   align-items: center;
@@ -96,7 +96,8 @@
   }
 
   span {
+    @include text-font(2rem);
+
     position: relative;
-    font-size: 2rem;
   }
 }

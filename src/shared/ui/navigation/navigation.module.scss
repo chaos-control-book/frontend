@@ -11,7 +11,7 @@
     }
 
     .item {
-      font-size: 0.875rem;
+      font-size: rem(14px);
     }
   }
 
@@ -29,5 +29,5 @@
 }
 
 .item {
-  @include russo-font();
+  @include heading-font();
 }

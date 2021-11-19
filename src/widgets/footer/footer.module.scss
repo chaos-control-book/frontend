@@ -15,8 +15,8 @@
   margin-left: auto;
 
   li {
-    @include russo-font();
+    @include heading-font();
 
-    color: #6e8291;
+    color: var(--color-text-quaternary);
   }
 }

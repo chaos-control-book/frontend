@@ -35,9 +35,9 @@
   }
 
   &__breadcrumbs {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 500;
-    letter-spacing: 0.03em;
+    @include text-font(1rem, 500);
+    @include letter-spacing();
+
     text-align: center;
   }
 
@@ -55,10 +55,11 @@
 }
 
 .location {
+  @include text-font();
+
   display: flex;
   align-items: center;
   margin-bottom: space(2);
-  font-family: 'Roboto', sans-serif;
 }
 
 .locationIcons {
@@ -74,7 +75,7 @@
 }
 
 .text {
-  font-family: 'Roboto', sans-serif;
+  @include text-font();
 }
 
 .footer {
@@ -99,9 +100,8 @@
   }
 
   &__copyright {
+    @include text-font(0.625rem);
     margin-top: space(2.5);
-    font-family: 'Roboto', sans-serif;
-    font-size: 0.625rem;
     color: var(--color-text-quaternary);
   }
 }

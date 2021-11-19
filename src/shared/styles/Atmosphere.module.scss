@@ -1,4 +1,4 @@
-@import 'functions';
+@import 'mixins', 'functions';
 
 .container {
   position: relative;
@@ -9,18 +9,16 @@
   height: 100%;
 
   .hello {
-    font-family: 'Roboto', sans-serif;
     text-align: center;
 
     &__title {
-      font-size: rem(24px);
-      font-weight: 500;
+      @include text-font(rem(24px), 500);
     }
 
     &__text {
+      @include text-font(rem(17px));
+
       margin-top: space(1.5);
-      font-size: rem(17px);
-      font-weight: 400;
     }
   }
 }
