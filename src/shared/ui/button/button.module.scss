@@ -3,6 +3,7 @@
 .container {
   @include button-reset();
   @include animation();
+  @include russo-font();
 
   $root: container;
 
@@ -24,6 +25,11 @@
 
   &_onlyIcon {
     padding: space(1);
+
+    .accessoryStart,
+    .accessoryEnd {
+      margin: 0;
+    }
   }
 
   &_text {
@@ -35,25 +41,21 @@
     background-color: var(--color-complement);
     border-color: var(--color-complement);
   }
+}
 
-  &__text {
-    pointer-events: none;
-  }
+.text {
+  pointer-events: none;
+}
 
-  &__endIcon,
-  &__startIcon {
-    display: inline-flex;
+.accessoryStart,
+.accessoryEnd {
+  display: inline-flex;
+}
 
-    .#{$root}_onlyIcon & {
-      margin: 0;
-    }
-  }
+.accessoryStart {
+  margin-inline-end: space(1);
+}
 
-  &__endIcon {
-    margin-inline-start: space(1);
-  }
-
-  &__startIcon {
-    margin-inline-end: space(1);
-  }
+.accessoryEnd {
+  margin-inline-start: space(1);
 }

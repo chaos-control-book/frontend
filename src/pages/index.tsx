@@ -33,7 +33,7 @@ export default function HomePage() {
       >
         <Link href="/read" activeClassName="">
           <a
-            className={cx([classes.area, classes.left])}
+            className={cx(classes.area, classes.left)}
             style={{
               backgroundColor: 'rgba(177, 177, 177, 0.2)',
             }}
@@ -46,7 +46,7 @@ export default function HomePage() {
 
         <Link href="/atmosphere" activeClassName="">
           <a
-            className={cx([classes.area, classes.right])}
+            className={cx(classes.area, classes.right)}
             style={{
               backgroundColor: 'rgba(196, 196, 196, 0.2)',
             }}

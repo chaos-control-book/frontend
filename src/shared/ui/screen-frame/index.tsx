@@ -19,7 +19,7 @@ export const ScreenFrame = ({
   className,
   children,
 }: Props): JSX.Element => (
-  <div className={cx([[className], classes.container])} style={style}>
+  <div className={cx(classes.container, className)} style={style}>
     <div className={classes.topArea}>{contentTopArea}</div>
 
     <div className={classes.rightArea} />
@@ -30,32 +30,32 @@ export const ScreenFrame = ({
 
     <div className={classes.content}>
       <div
-        className={cx([
+        className={cx(
           classes.item,
           classes.topCrosshair,
-          classes.leftCrosshair,
-        ])}
+          classes.leftCrosshair
+        )}
       />
       <div
-        className={cx([
+        className={cx(
           classes.item,
           classes.topCrosshair,
-          classes.rightCrosshair,
-        ])}
+          classes.rightCrosshair
+        )}
       />
       <div
-        className={cx([
+        className={cx(
           classes.item,
           classes.bottomCrosshair,
-          classes.rightCrosshair,
-        ])}
+          classes.rightCrosshair
+        )}
       />
       <div
-        className={cx([
+        className={cx(
           classes.item,
           classes.bottomCrosshair,
-          classes.leftCrosshair,
-        ])}
+          classes.leftCrosshair
+        )}
       />
 
       {children}

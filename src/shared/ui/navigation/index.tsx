@@ -23,7 +23,7 @@ export const Navigation = ({
   style,
 }: Props): JSX.Element => (
   <nav
-    className={cx([classes.container, className], {
+    className={cx(classes.container, className, {
       [classes.small]: size === 'small',
       [classes.medium]: size === 'medium',
     })}

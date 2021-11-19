@@ -9,7 +9,8 @@ LAYOUT AND COMMON STYLES
 
 html {
   min-width: 320px;
-  font-family: 'Russo One', 'Roboto', sans-serif;
+  font-family: Roboto, -apple-system, BlinkMacSystemFont, Segoe UI, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   overflow-x: hidden;
   background-color: var(--color-root-base);
 }

@@ -14,7 +14,7 @@ interface Props {
 export const Logo = ({ className, style }: Props): JSX.Element => (
   <Link href="/" activeClassName="">
     {/* eslint-disable-next-line react/jsx-props-no-spreading */}
-    <a className={cx([classes.logo, className])} style={style}>
+    <a className={cx(classes.default, className)} style={style}>
       Контроль Хаоса
     </a>
   </Link>

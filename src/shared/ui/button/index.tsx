@@ -24,7 +24,7 @@ export const Button = ({
   children,
   ...props
 }: Props): JSX.Element => {
-  const classNames = cx([classes.container, className], {
+  const classNames = cx(classes.container, className, {
     [classes.container_onlyIcon]: !children,
     [classes.container_text]: variant === 'text',
     [classes.container_filled]: variant === 'filled',
@@ -33,13 +33,13 @@ export const Button = ({
   const renderContent = (
     <>
       {accessoryStart && (
-        <span className={classes.container__startIcon}>{accessoryStart}</span>
+        <span className={classes.accessoryStart}>{accessoryStart}</span>
       )}
 
-      {children && <span className={classes.container__text}>{children}</span>}
+      {children && <span className={classes.text}>{children}</span>}
 
       {accessoryEnd && (
-        <span className={classes.container__endIcon}>{accessoryEnd}</span>
+        <span className={classes.accessoryEnd}>{accessoryEnd}</span>
       )}
     </>
   );
