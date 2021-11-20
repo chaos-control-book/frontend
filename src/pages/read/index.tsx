@@ -1,8 +1,8 @@
-import { GetStaticProps } from 'next';
+import { GetServerSideProps } from 'next';
 
 import { getChapters } from '~shared/api/chapter';
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
   const chapters = await getChapters();
   const { slug } = chapters[0];
 
