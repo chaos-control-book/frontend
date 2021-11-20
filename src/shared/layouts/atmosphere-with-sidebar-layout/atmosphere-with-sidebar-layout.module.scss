@@ -15,7 +15,7 @@
   background-color: var(--color-root-faint);
 
   &__wrapper {
-    top: 60px;
+    top: var(--navigation-small-height);
     padding: 0;
   }
 }

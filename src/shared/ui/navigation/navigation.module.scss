@@ -4,8 +4,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 100%;
 
   &.small {
+    max-height: var(--navigation-small-height);
+
     .list {
       min-height: space(2.5);
     }
@@ -16,6 +19,8 @@
   }
 
   &.medium {
+    max-height: var(--navigation-medium-height);
+
     .item {
       font-size: 1rem;
     }
