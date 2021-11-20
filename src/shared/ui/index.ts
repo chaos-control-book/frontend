@@ -5,3 +5,4 @@ export { Link } from './link';
 export { Image } from './image';
 export { Button } from './button';
 export { Menu } from './menu';
+export { Markdown } from './markdown';

@@ -1,7 +1,6 @@
 import { GetServerSideProps } from 'next';
 
 import cx from 'classnames';
-import ReactMarkdown, { Components } from 'react-markdown';
 
 import { useKeepReading } from '~features/keep-reading';
 
@@ -11,7 +10,7 @@ import { useWindowScroll } from '~shared/hooks';
 import { getReaderLayout } from '~shared/layouts/reader-layout';
 import { intToRoman } from '~shared/lib/convert';
 import classes from '~shared/styles/Read.module.scss';
-import { Button, Image } from '~shared/ui';
+import { Button, Image, Markdown } from '~shared/ui';
 import {
   BookmarkIcon,
   ChevronRightIcon,
@@ -49,31 +48,6 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
       nextChapterSlug: nextChapterSlug ?? null,
     },
   };
-};
-
-const components: Components = {
-  p: (paragraph) => {
-    const {
-      node: {
-        children: [firstChild],
-      },
-    } = paragraph;
-    if ('tagName' in firstChild && firstChild.tagName === 'img') {
-      const imageProps:
-        | {
-            src?: string;
-            alt?: string;
-          }
-        | undefined = firstChild.properties;
-      return (
-        <p className="image">
-          <Image src={imageProps?.src ?? ''} alt={imageProps?.alt} />
-        </p>
-      );
-    }
-
-    return <p>{paragraph.children}</p>;
-  },
 };
 
 // eslint-disable-next-line import/no-default-export
@@ -131,9 +105,7 @@ export default function ReadChapterPage({
         )}
 
         {currentChapter?.content && (
-          <ReactMarkdown className="wysiwyg" components={components}>
-            {currentChapter.content}
-          </ReactMarkdown>
+          <Markdown>{currentChapter.content}</Markdown>
         )}
       </div>
 
