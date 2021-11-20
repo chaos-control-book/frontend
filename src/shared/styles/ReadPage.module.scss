@@ -5,6 +5,8 @@
 }
 
 .head {
+  @include animation(padding, 300ms);
+
   position: sticky;
   top: 0;
   z-index: 1;
@@ -16,7 +18,7 @@
   padding-top: space(16);
   padding-bottom: space(6);
   background-color: var(--color-root-base);
-  @include animation(padding, 300ms);
+  will-change: padding-top, padding-bottom;
 
   &_mini {
     padding-top: space(3.5);
