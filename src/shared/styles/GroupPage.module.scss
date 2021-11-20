@@ -1,0 +1,26 @@
+@import 'functions';
+
+.container {
+  padding-top: space(5);
+  padding-bottom: space(5);
+}
+
+.head,
+.description {
+  padding-left: space(5);
+  padding-right: space(5);
+}
+
+.head {
+  margin-bottom: space(6);
+}
+
+.subtitle {
+  margin-top: space(2);
+}
+
+.description {
+  width: 90%;
+  max-width: rem(960px);
+  margin-top: space(6);
+}
