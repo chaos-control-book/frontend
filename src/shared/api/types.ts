@@ -1,3 +1,5 @@
+type ActionDate = Maybe<string>;
+
 interface CoverImage {
   id: string;
   name: string;
@@ -41,9 +43,9 @@ export interface Chapter {
   slug: string;
   placeOfAction?: Maybe<string>;
   coverImage?: Maybe<CoverImage>;
-  created_by?: Maybe<string>;
-  updated_by?: Maybe<string>;
-  published_at?: Maybe<string>;
+  created_by?: ActionDate;
+  updated_by?: ActionDate;
+  published_at?: ActionDate;
 }
 
 export interface Book {
@@ -54,7 +56,19 @@ export interface Book {
   coverImage?: Maybe<CoverImage>;
   chapters?: Maybe<Chapter[]>;
   slug: string;
-  created_by?: Maybe<string>;
-  updated_by?: Maybe<string>;
-  published_at?: Maybe<string>;
+  created_by?: ActionDate;
+  updated_by?: ActionDate;
+  published_at?: ActionDate;
+}
+
+export interface Group {
+  id: number;
+  title: string;
+  subtitle?: Maybe<string>;
+  coverImage?: Maybe<CoverImage>;
+  description: string;
+  slug: string;
+  created_by?: ActionDate;
+  updated_by?: ActionDate;
+  published_at?: ActionDate;
 }

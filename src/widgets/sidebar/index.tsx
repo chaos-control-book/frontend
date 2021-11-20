@@ -11,6 +11,7 @@ interface Props {
   renderMenu: ReactElement;
   showBackButton?: boolean;
   className?: string;
+  wrapperClassName?: string;
   style?: CSSProperties;
 }
 
@@ -18,10 +19,11 @@ export const Sidebar = ({
   renderMenu,
   showBackButton,
   className,
+  wrapperClassName,
   style,
 }: Props): JSX.Element => (
   <aside className={cx(classes.container, className)} style={style}>
-    <div className={classes.wrapper}>
+    <div className={cx(classes.wrapper, wrapperClassName)}>
       {showBackButton && (
         <Button
           as="link"
