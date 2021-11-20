@@ -13,7 +13,7 @@ const routes: Route[] = [
   {
     href: '/atmosphere',
     label: 'Атмосфера',
-    exact: true,
+    exact: false,
   },
   {
     href: '/authors',

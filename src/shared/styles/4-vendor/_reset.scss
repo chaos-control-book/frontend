@@ -41,7 +41,7 @@ body {
 a {
   text-decoration: none;
 
-  &:visited {
+  &:not([class]):visited {
     color: inherit;
   }
 

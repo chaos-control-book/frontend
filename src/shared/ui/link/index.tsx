@@ -16,14 +16,14 @@ export interface LinkProps extends NextLinkProps {
 export const Link = ({
   children,
   activeClassName = classes.active,
-  exact,
+  exact = true,
   ...props
 }: LinkProps): JSX.Element => {
   const { asPath } = useRouter();
   const child = Children.only(children);
   const childClassName = child.props.className || '';
   const isActiveLink = () => {
-    if (!exact) {
+    if (exact) {
       return asPath === props.href || asPath === props.as;
     }
 

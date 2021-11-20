@@ -27,7 +27,7 @@ export const Navigation = ({
     style={style}
   >
     <ul className={classes.list}>
-      {routes.map(({ href, label, exact }) => (
+      {routes.map(({ href, label, exact = false }) => (
         <li key={label} className={classes.item}>
           <Link href={href} exact={exact}>
             <a>{label}</a>

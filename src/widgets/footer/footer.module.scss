@@ -15,8 +15,9 @@
   margin-left: auto;
 
   li {
-    @include heading-font();
-
-    color: var(--color-text-quaternary);
+    :global a {
+      @include heading-font();
+      color: var(--color-text-quaternary);
+    }
   }
 }
