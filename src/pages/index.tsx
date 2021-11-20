@@ -4,7 +4,7 @@ import cx from 'classnames';
 import { motion } from 'framer-motion';
 
 import { getMainLayout } from '~shared/layouts/main-layout';
-import classes from '~shared/styles/Home.module.scss';
+import classes from '~shared/styles/HomePage.module.scss';
 import { Link } from '~shared/ui';
 
 const variants = {

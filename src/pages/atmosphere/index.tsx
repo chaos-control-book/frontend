@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 
 import { getAtmosphereLayout } from '~shared/layouts/atmosphere-layout';
-import classes from '~shared/styles/Atmosphere.module.scss';
+import classes from '~shared/styles/AtmospherePage.module.scss';
 
 const variants = {
   hidden: { opacity: 0 },

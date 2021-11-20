@@ -9,7 +9,7 @@ import { Chapter } from '~shared/api/types';
 import { useWindowScroll } from '~shared/hooks';
 import { getReaderLayout } from '~shared/layouts/reader-layout';
 import { intToRoman } from '~shared/lib/convert';
-import classes from '~shared/styles/Read.module.scss';
+import classes from '~shared/styles/ReadPage.module.scss';
 import { Button, Image, Markdown } from '~shared/ui';
 import {
   BookmarkIcon,
