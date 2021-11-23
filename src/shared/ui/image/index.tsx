@@ -4,7 +4,7 @@ import NextImage, {
 } from 'next/image';
 
 const strapiLoader: NextImageLoader = ({ src, width, quality }) =>
-  `${process.env.NEXT_PUBLIC_STRAPI_API_URL}${src}?w=${width}&q=${quality}`;
+  `${process.env.NEXT_PUBLIC_STRAPI_CLIENT_API_URL}${src}?w=${width}&q=${quality}`;
 
 interface Props extends NextImageProps {}
 

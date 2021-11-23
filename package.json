@@ -11,7 +11,7 @@
     "dev": "next dev",
     "build": "next build",
     "build:analyze": "cross-env ANALYZE=true next build",
-    "start": "next start",
+    "start": "next start -p ${PORT:=3000}",
     "lint": "next lint",
     "prepare": "simple-git-hooks"
   },

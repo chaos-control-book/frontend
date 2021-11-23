@@ -1,0 +1,11 @@
+.idea/
+.vscode/
+.git/
+.gitignore
+.dockerignore
+.next/
+node_modules
+Dockerfile
+LICENSE
+README.md
+tsconfig.tsbuildinfo
