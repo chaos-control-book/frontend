@@ -1,4 +1,3 @@
-const path = require('path');
 const withPlugins = require('next-compose-plugins');
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
@@ -12,14 +11,29 @@ const nextConfiguration = {
   images: {
     domains: ['localhost'],
   },
-  sassOptions: {
-    includePaths: [path.join(__dirname, 'src/shared/styles/3-helpers')],
-  },
   pwa: {
     dest: 'public',
     runtimeCaching,
     disable: process.env.NODE_ENV === 'development',
     register: true,
+  },
+  typescript: {
+    // !! WARN !!
+    // В production режиме отключает проверку типов и, соответственно, ошибки,
+    // связанные с типизацией, чтобы сборка происходила быстрее.
+    // !! WARN !!
+    // С этой опцией обязательна проверка типов и ошибок в development режиме!
+    // !! WARN !!
+    ignoreBuildErrors: true,
+  },
+  eslint: {
+    // !! WARN !!
+    // В production режиме отключает проверку типов и, соответственно, ошибки,
+    // связанные с ESLint/Prettier, чтобы сборка происходила быстрее.
+    // !! WARN !!
+    // С этой опцией обязательна проверка типов и ошибок в development режиме!
+    // !! WARN !!
+    ignoreDuringBuilds: true,
   },
 };
 

@@ -1,14 +1,13 @@
-import { HTMLProps, ReactElement, ReactNode } from 'react';
+import { CSSProperties, HTMLProps, ReactElement, ReactNode } from 'react';
 
-import cx from 'classnames';
-
-import classes from './menu-item.module.scss';
+import * as S from './styles';
 
 interface Props extends HTMLProps<HTMLLIElement> {
   accessoryStart?: ReactElement;
   accessoryEnd?: ReactElement;
   className?: string;
   children?: ReactNode;
+  style?: CSSProperties;
 }
 
 export const MenuItem = ({
@@ -16,18 +15,15 @@ export const MenuItem = ({
   accessoryEnd,
   className,
   children,
-  ...props
+  style,
 }: Props): JSX.Element => (
-  // eslint-disable-next-line react/jsx-props-no-spreading
-  <li className={cx(classes.default)} {...props}>
+  <S.Container className={className} style={style}>
     {accessoryStart && (
-      <span className={classes.accessoryStart}>{accessoryStart}</span>
+      <S.Accessory position="start">{accessoryStart}</S.Accessory>
     )}
 
     {children}
 
-    {accessoryEnd && (
-      <span className={classes.accessoryEnd}>{accessoryEnd}</span>
-    )}
-  </li>
+    {accessoryEnd && <S.Accessory position="end">{accessoryEnd}</S.Accessory>}
+  </S.Container>
 );

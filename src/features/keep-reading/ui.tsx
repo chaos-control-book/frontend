@@ -9,9 +9,5 @@ export const KeepReadingButton = () => {
     return null;
   }
 
-  return (
-    <Button as="link" href={`/read/${storedChapterSlug}`}>
-      Продолжить читать
-    </Button>
-  );
+  return <Button href={`read/${storedChapterSlug}`}>Продолжить читать</Button>;
 };

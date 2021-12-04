@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 
 import { getAtmosphereLayout } from '~shared/layouts/atmosphere-layout';
-import classes from '~shared/styles/AtmospherePage.module.scss';
+import * as S from '~shared/styles/AtmospherePage.styles';
 
 const variants = {
   hidden: { opacity: 0 },
@@ -13,22 +13,18 @@ const variants = {
 export default function AtmospherePage() {
   return (
     <motion.div
-      className={classes.container}
+      className={S.container}
       initial="hidden"
       animate="enter"
       exit="exit"
       variants={variants}
       transition={{ type: 'linear' }}
     >
-      <div className={classes.hello}>
-        <h2 className={classes.hello__title}>
-          Это гайд по вселенной «Контроль Хаоса»
-        </h2>
+      <S.TextContainer>
+        <S.Title>Это гайд по вселенной «Контроль Хаоса»</S.Title>
 
-        <p className={classes.hello__text}>
-          Здесь вы найдете всю информацию по книге
-        </p>
-      </div>
+        <S.Text>Здесь вы найдете всю информацию по книге</S.Text>
+      </S.TextContainer>
     </motion.div>
   );
 }

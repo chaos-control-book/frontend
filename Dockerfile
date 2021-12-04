@@ -7,7 +7,7 @@ WORKDIR /usr/src/frontend
 
 COPY package.json yarn.lock ./
 
-RUN rm -fr node_modules
+RUN rm -rf node_modules
 
 RUN yarn install --pure-lockfile
 

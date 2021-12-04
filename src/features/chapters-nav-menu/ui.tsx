@@ -1,11 +1,9 @@
-import cx from 'classnames';
-
 import { useChapters } from '~shared/api/chapter';
 import { useWindowScroll } from '~shared/hooks';
 import { intToRoman } from '~shared/lib/convert';
 import { Link, Menu } from '~shared/ui';
 
-import classes from './ui.module.scss';
+import * as S from './styles';
 
 export const ChaptersNavMenu = (): JSX.Element => {
   const { data: chapters, error } = useChapters();
@@ -27,9 +25,7 @@ export const ChaptersNavMenu = (): JSX.Element => {
           <Menu.Item key={c.id}>
             <Link href={`/read/${c.slug}`}>
               <a>
-                <span className={classes.chapterNumber}>
-                  {intToRoman(c.number)}.
-                </span>
+                <S.ChapterNumber>{intToRoman(c.number)}.</S.ChapterNumber>
                 {c.title}
               </a>
             </Link>
@@ -39,13 +35,5 @@ export const ChaptersNavMenu = (): JSX.Element => {
     );
   };
 
-  return (
-    <nav
-      className={cx(classes.menu, {
-        [classes.menu_hidden]: scrollPercentY > 35,
-      })}
-    >
-      {renderNavContent()}
-    </nav>
-  );
+  return <S.Menu $hidden={scrollPercentY > 35}>{renderNavContent()}</S.Menu>;
 };

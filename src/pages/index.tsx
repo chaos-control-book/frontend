@@ -1,10 +1,9 @@
 import Head from 'next/head';
 
-import cx from 'classnames';
 import { motion } from 'framer-motion';
 
 import { getMainLayout } from '~shared/layouts/main-layout';
-import classes from '~shared/styles/HomePage.module.scss';
+import * as S from '~shared/styles/HomePage.styles';
 import { Link } from '~shared/ui';
 
 const variants = {
@@ -24,7 +23,7 @@ export default function HomePage() {
       </Head>
 
       <motion.div
-        className={classes.container}
+        className={S.container}
         initial="hidden"
         animate="enter"
         exit="exit"
@@ -32,27 +31,17 @@ export default function HomePage() {
         transition={{ type: 'linear' }}
       >
         <Link href="/read" activeClassName="">
-          <a
-            className={cx(classes.area, classes.left)}
-            style={{
-              backgroundColor: 'rgba(177, 177, 177, 0.2)',
-            }}
-          >
+          <S.LeftArea backgroundColor="rgba(177, 177, 177, 0.2)">
             <span>Читать книгу</span>
-          </a>
+          </S.LeftArea>
         </Link>
 
-        <span className={classes.separator}>или</span>
+        <S.Separator>или</S.Separator>
 
         <Link href="/atmosphere" activeClassName="">
-          <a
-            className={cx(classes.area, classes.right)}
-            style={{
-              backgroundColor: 'rgba(196, 196, 196, 0.2)',
-            }}
-          >
+          <S.RightArea backgroundColor="rgba(196, 196, 196, 0.2)">
             <span>Атмосфера</span>
-          </a>
+          </S.RightArea>
         </Link>
       </motion.div>
     </>

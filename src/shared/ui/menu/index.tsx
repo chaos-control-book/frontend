@@ -1,20 +1,15 @@
-import { HTMLProps, ReactNode } from 'react';
-
-import cx from 'classnames';
+import { ReactNode } from 'react';
 
 import { MenuItem } from './menu-item';
-import classes from './menu.module.scss';
+import * as S from './styles';
 
-interface Props extends HTMLProps<HTMLUListElement> {
+interface Props {
   className?: string;
   children?: ReactNode;
 }
 
-export const Menu = ({ className, children, ...props }: Props): JSX.Element => (
-  // eslint-disable-next-line react/jsx-props-no-spreading
-  <ul className={cx(classes.default, className)} {...props}>
-    {children}
-  </ul>
+export const Menu = ({ className, children }: Props): JSX.Element => (
+  <S.Default className={className}>{children}</S.Default>
 );
 
 Menu.Item = MenuItem;

@@ -9,8 +9,20 @@
     "plugin:react/jsx-runtime",
     "prettier"
   ],
-  "plugins": ["eslint-plugin-import-helpers", "prettier"],
+  "plugins": ["eslint-plugin-import-helpers", "@emotion", "prettier"],
+  "overrides": [
+    {
+      "files": ["*.{js,jsx}"],
+      "rules": {
+        "no-undef": "error",
+        "consistent-return": "off",
+        "@typescript-eslint/no-var-requires": "off",
+        "@typescript-eslint/explicit-module-boundary-types": "off"
+      }
+    }
+  ],
   "rules": {
+    "no-undef": "off",
     "import-helpers/order-imports": [
       "error",
       {
@@ -32,6 +44,16 @@
     "import/no-default-export": ["error"],
     "react/require-default-props": "off",
     "react/jsx-no-undef": "off",
-    "jsx-a11y/anchor-is-valid": "off"
+    "jsx-a11y/anchor-is-valid": "off",
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "^_"
+      }
+    ],
+    "@emotion/jsx-import": "error",
+    "@emotion/import-from-emotion": "error",
+    "@emotion/styled-import": "error",
+    "@emotion/pkg-renaming": "error"
   }
 }

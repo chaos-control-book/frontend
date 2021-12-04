@@ -3,7 +3,7 @@ import { KeepReadingButton } from '~features/keep-reading';
 import { Button, Logo, Navigation } from '~shared/ui';
 import { LikeIcon } from '~shared/ui/icons';
 
-import classes from './header.module.scss';
+import * as S from './styles';
 
 const routes: Route[] = [
   {
@@ -22,15 +22,15 @@ const routes: Route[] = [
 ];
 
 export const Header = (): JSX.Element => (
-  <header className={classes.container}>
+  <S.Container>
     <Logo />
 
-    <Navigation routes={routes} className={classes.nav} />
+    <Navigation routes={routes} className={S.nav} />
 
-    <div className={classes.actions}>
+    <S.Actions>
       <KeepReadingButton />
 
-      <Button className={classes.actions__like} accessoryStart={<LikeIcon />} />
-    </div>
-  </header>
+      <Button accessoryStart={<LikeIcon />} className={S.actionsLikeButton} />
+    </S.Actions>
+  </S.Container>
 );

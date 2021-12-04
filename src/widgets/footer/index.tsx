@@ -1,20 +1,21 @@
 import { Link } from '~shared/ui';
 
-import classes from './footer.module.scss';
+import * as S from './styles';
 
 export const Footer = (): JSX.Element => (
-  <footer className={classes.container}>
-    <ul className={classes.links}>
-      <li>
+  <S.Container>
+    <S.LinksList>
+      <S.LinksListItem>
         <Link href="https://discord.com/">
           <a target="_blank">Discord</a>
         </Link>
-      </li>
-      <li>
+      </S.LinksListItem>
+
+      <S.LinksListItem>
         <Link href="https://vk.com/">
           <a target="_blank">Vkontakte</a>
         </Link>
-      </li>
-    </ul>
-  </footer>
+      </S.LinksListItem>
+    </S.LinksList>
+  </S.Container>
 );

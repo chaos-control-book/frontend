@@ -1,11 +1,9 @@
 import { CSSProperties, ReactElement } from 'react';
 
-import cx from 'classnames';
-
 import { Button } from '~shared/ui';
 import { ChevronLeftIcon } from '~shared/ui/icons';
 
-import classes from './sidebar.module.scss';
+import * as S from './styles';
 
 interface Props {
   renderMenu: ReactElement;
@@ -22,20 +20,19 @@ export const Sidebar = ({
   wrapperClassName,
   style,
 }: Props): JSX.Element => (
-  <aside className={cx(classes.container, className)} style={style}>
-    <div className={cx(classes.wrapper, wrapperClassName)}>
+  <S.Container className={className} style={style}>
+    <S.Wrapper className={wrapperClassName}>
       {showBackButton && (
         <Button
-          as="link"
           href="/"
           accessoryStart={<ChevronLeftIcon />}
-          className={classes.backButton}
+          className={S.backButton}
         >
           Вернуться на сайт
         </Button>
       )}
 
       {renderMenu}
-    </div>
-  </aside>
+    </S.Wrapper>
+  </S.Container>
 );

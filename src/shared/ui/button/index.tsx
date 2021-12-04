@@ -1,67 +1,64 @@
-import { HTMLProps, ReactNode } from 'react';
-
-import cx from 'classnames';
-
 import { Link } from '~shared/ui/link';
 
-import classes from './button.module.scss';
-
-interface Props extends HTMLProps<HTMLButtonElement> {
-  accessoryEnd?: ReactNode;
-  accessoryStart?: ReactNode;
-  variant?: 'text' | 'filled';
-  as?: 'button' | 'link';
-  href?: string;
-}
+import { ButtonProps } from './props';
+import * as S from './styles';
 
 export const Button = ({
   accessoryEnd,
   accessoryStart,
   variant = 'text',
-  as = 'button',
   href,
   className,
   children,
-  ...props
-}: Props): JSX.Element => {
-  const classNames = cx(classes.container, className, {
-    [classes.container_onlyIcon]: !children,
-    [classes.container_text]: variant === 'text',
-    [classes.container_filled]: variant === 'filled',
-  });
-
+  style,
+}: ButtonProps): JSX.Element => {
   const renderContent = (
     <>
       {accessoryStart && (
-        <span className={classes.accessoryStart}>{accessoryStart}</span>
+        <S.Accessory position="start" onlyIcon={!children}>
+          {accessoryStart}
+        </S.Accessory>
       )}
 
-      {children && <span className={classes.text}>{children}</span>}
+      {children && <S.Text>{children}</S.Text>}
 
       {accessoryEnd && (
-        <span className={classes.accessoryEnd}>{accessoryEnd}</span>
+        <S.Accessory position="end" onlyIcon={!children}>
+          {accessoryEnd}
+        </S.Accessory>
       )}
     </>
   );
 
-  if (as === 'link') {
-    if (!href) {
-      throw new Error(
-        "Prop 'as' with value 'link' must be passed with prop 'href'."
-      );
-    }
-
+  if (href) {
     return (
       <Link href={href}>
-        <a className={classNames}>{renderContent}</a>
+        <S.Container
+          as="a"
+          variant={variant}
+          accessoryStart={accessoryStart}
+          accessoryEnd={accessoryEnd}
+          onlyIcon={!children}
+          className={className}
+          style={style}
+        >
+          {renderContent}
+        </S.Container>
       </Link>
     );
   }
 
   return (
-    // eslint-disable-next-line react/jsx-props-no-spreading
-    <button className={classNames} {...props} type="button">
+    <S.Container
+      type="button"
+      variant={variant}
+      accessoryStart={accessoryStart}
+      accessoryEnd={accessoryEnd}
+      onlyIcon={!children}
+      className={className}
+      style={style}
+    >
       {renderContent}
-    </button>
+    </S.Container>
   );
 };

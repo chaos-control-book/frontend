@@ -4,16 +4,16 @@ import { Header, Footer } from '~widgets';
 
 import { ScreenFrame } from '~shared/ui';
 
-import classes from './main-layout.module.scss';
+import * as S from './styles';
 
 interface Props {
   children: ReactElement;
 }
 
 export const MainLayout = ({ children }: Props): JSX.Element => (
-  <div className={classes.container}>
+  <S.Container>
     <ScreenFrame contentTopArea={<Header />} contentBottomArea={<Footer />}>
-      <main className={classes.main}>{children}</main>
+      <main>{children}</main>
     </ScreenFrame>
-  </div>
+  </S.Container>
 );

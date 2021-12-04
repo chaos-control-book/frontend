@@ -1,10 +1,8 @@
 import { CSSProperties, memo, SVGProps } from 'react';
 
-import cx from 'classnames';
-
 import { Link } from '~shared/ui/link';
 
-import classes from './logo.module.scss';
+import * as S from './styles';
 
 interface Props {
   className?: string;
@@ -26,9 +24,8 @@ const LogoSvg = memo((props: SVGProps<SVGSVGElement>) => (
 
 export const Logo = ({ className, style }: Props): JSX.Element => (
   <Link href="/" activeClassName="" exact>
-    {/* eslint-disable-next-line react/jsx-props-no-spreading */}
-    <a className={cx(classes.default, className)} style={style}>
+    <S.Container className={className} style={style}>
       <LogoSvg />
-    </a>
+    </S.Container>
   </Link>
 );

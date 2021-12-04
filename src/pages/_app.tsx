@@ -1,12 +1,16 @@
-import '~shared/styles/styles.scss';
+import '~shared/styles/base/variables.scss';
+
 import { ReactElement, ReactNode, useEffect } from 'react';
 
 import { NextPage } from 'next';
 import type { AppProps } from 'next/app';
 import { useRouter } from 'next/router';
 
+import { Global } from '@emotion/react';
 import { AnimatePresence } from 'framer-motion';
 import NProgress from 'nprogress';
+
+import { globalStyles } from '~shared/styles';
 
 type NextPageWithLayout = NextPage & {
   getLayout?: (page: ReactElement) => ReactNode;
@@ -45,13 +49,17 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
   const getLayout = Component.getLayout ?? ((page) => page);
 
   return (
-    <AnimatePresence
-      exitBeforeEnter
-      initial={false}
-      onExitComplete={() => window.scrollTo(0, 0)}
-    >
-      {/* eslint-disable-next-line react/jsx-props-no-spreading */}
-      {getLayout(<Component {...pageProps} />)}
-    </AnimatePresence>
+    <>
+      <Global styles={globalStyles} />
+
+      <AnimatePresence
+        exitBeforeEnter
+        initial={false}
+        onExitComplete={() => window.scrollTo(0, 0)}
+      >
+        {/* eslint-disable-next-line react/jsx-props-no-spreading */}
+        {getLayout(<Component {...pageProps} />)}
+      </AnimatePresence>
+    </>
   );
 }

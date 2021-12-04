@@ -4,7 +4,7 @@ import { Sidebar } from '~widgets';
 
 import { GroupsNavMenu } from '~features/groups-nav-menu';
 
-import classes from './atmosphere-with-sidebar-layout.module.scss';
+import * as S from './styles';
 
 interface Props {
   children: ReactElement;
@@ -13,13 +13,13 @@ interface Props {
 export const AtmosphereWithSidebarLayout = ({
   children,
 }: Props): JSX.Element => (
-  <div className={classes.container}>
+  <S.Container>
     <Sidebar
-      className={classes.sidebar}
-      wrapperClassName={classes.sidebar__wrapper}
+      className={S.sidebar}
+      wrapperClassName={S.sidebarWrapper}
       renderMenu={<GroupsNavMenu />}
     />
 
     {children}
-  </div>
+  </S.Container>
 );

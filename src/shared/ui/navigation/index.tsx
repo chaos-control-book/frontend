@@ -1,10 +1,8 @@
 import { CSSProperties } from 'react';
 
-import cx from 'classnames';
-
 import { Link } from '~shared/ui/link';
 
-import classes from './navigation.module.scss';
+import * as S from './styles';
 
 interface Props {
   routes: Route[];
@@ -19,21 +17,15 @@ export const Navigation = ({
   className,
   style,
 }: Props): JSX.Element => (
-  <nav
-    className={cx(classes.container, className, {
-      [classes.small]: size === 'small',
-      [classes.medium]: size === 'medium',
-    })}
-    style={style}
-  >
-    <ul className={classes.list}>
+  <S.Container size={size} className={className} style={style}>
+    <S.List>
       {routes.map(({ href, label, exact = false }) => (
-        <li key={label} className={classes.item}>
+        <S.ListItem key={label} size={size}>
           <Link href={href} exact={exact}>
             <a>{label}</a>
           </Link>
-        </li>
+        </S.ListItem>
       ))}
-    </ul>
-  </nav>
+    </S.List>
+  </S.Container>
 );

@@ -8,7 +8,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
 
   return {
     redirect: {
-      destination: `/read/${slug}`,
+      destination: `read/${slug}`,
       permanent: false,
     },
   };

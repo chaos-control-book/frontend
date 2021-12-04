@@ -1,7 +1,7 @@
 import { useGroups } from '~shared/api/groups';
 import { Link, Menu, Skeleton } from '~shared/ui';
 
-import classes from './ui.module.scss';
+import * as S from './styles';
 
 export const GroupsNavMenu = (): JSX.Element => {
   const { data: groups, error } = useGroups();
@@ -16,7 +16,7 @@ export const GroupsNavMenu = (): JSX.Element => {
     }
 
     return (
-      <Menu className={classes.menu__list}>
+      <Menu className={S.menuList}>
         {groups.map((g) => (
           <Menu.Item key={g.id}>
             <Link href={`/atmosphere/groups/${g.slug}`}>
@@ -28,5 +28,5 @@ export const GroupsNavMenu = (): JSX.Element => {
     );
   };
 
-  return <nav className={classes.menu}>{renderNavContent()}</nav>;
+  return <S.Menu>{renderNavContent()}</S.Menu>;
 };

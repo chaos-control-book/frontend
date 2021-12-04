@@ -1,7 +1,5 @@
 import { GetServerSideProps } from 'next';
 
-import cx from 'classnames';
-
 import { useKeepReading } from '~features/keep-reading';
 
 import { getChapters } from '~shared/api/chapter';
@@ -9,7 +7,7 @@ import { Chapter } from '~shared/api/types';
 import { useWindowScroll } from '~shared/hooks';
 import { getReaderLayout } from '~shared/layouts/reader-layout';
 import { intToRoman } from '~shared/lib/convert';
-import classes from '~shared/styles/ReadPage.module.scss';
+import * as S from '~shared/styles/ReadPage.styles';
 import { Button, Image, Markdown } from '~shared/ui';
 import {
   BookmarkIcon,
@@ -60,85 +58,78 @@ export default function ReadChapterPage({
   useKeepReading();
 
   return (
-    <section className={classes.reader}>
-      <div
-        className={cx(classes.head, {
-          [classes.head_mini]: scrollPercentY > 20,
-        })}
-      >
-        <div className={classes.head__actions}>
+    <S.Container>
+      <S.Header isMini={scrollPercentY > 20}>
+        {currentChapter?.title && (
+          <S.HeaderTitle>
+            {currentChapter?.number && (
+              <S.ChapterNumber>
+                Глава {intToRoman(currentChapter?.number)}{' '}
+              </S.ChapterNumber>
+            )}
+
+            {currentChapter.title}
+          </S.HeaderTitle>
+        )}
+
+        <S.HeaderActions>
           <Button accessoryStart={<BookmarkIcon />} />
           <Button accessoryStart={<DayIcon />} />
-        </div>
-
-        {currentChapter?.title && (
-          <p className={classes.head__breadcrumbs}>
-            {currentChapter?.number && (
-              <span className={classes.accent}>
-                Глава {intToRoman(currentChapter?.number)}{' '}
-              </span>
-            )}
-            {currentChapter.title}
-          </p>
-        )}
-      </div>
+        </S.HeaderActions>
+      </S.Header>
 
       {currentChapter?.coverImage && (
         <Image
-          className={classes.head__img}
+          className={S.coverImage}
           src={currentChapter.coverImage.formats.large.url}
           alt={currentChapter.coverImage.alternativeText ?? ''}
         />
       )}
 
-      <div className={classes.body}>
+      <S.Body>
         {currentChapter?.placeOfAction && (
-          <p className={classes.location}>
-            <span className={classes.locationIcons}>
+          <S.Location>
+            <S.LocationIcons>
               <TimeIcon />
               <LocationIcon />
-            </span>
-            <span className={classes.locationText}>
-              {currentChapter.placeOfAction}
-            </span>
-          </p>
+            </S.LocationIcons>
+
+            <S.LocationText>{currentChapter.placeOfAction}</S.LocationText>
+          </S.Location>
         )}
 
         {currentChapter?.content && (
           <Markdown>{currentChapter.content}</Markdown>
         )}
-      </div>
+      </S.Body>
 
-      <div className={classes.footer}>
-        <div className={classes.footer__inner}>
-          <div className={classes.footer__left}>
+      <S.Footer>
+        <S.FooterInner>
+          <S.FooterLeft>
             <p>Поделиться главой</p>
-            <div className={classes.footer__share}>
+            <S.FooterShare>
               <Button accessoryStart={<BookmarkIcon />} />
 
               <Button accessoryStart={<BookmarkIcon />} />
-            </div>
-          </div>
+            </S.FooterShare>
+          </S.FooterLeft>
 
           {nextChapterSlug && (
-            <div className={classes.footer__right}>
-              <Button
-                as="link"
-                href={`/read/${nextChapterSlug}`}
-                variant="filled"
-                accessoryEnd={<ChevronRightIcon />}
-              >
-                Следующая глава
-              </Button>
-            </div>
+            <Button
+              href={`/read/${nextChapterSlug}`}
+              variant="filled"
+              accessoryEnd={<ChevronRightIcon />}
+            >
+              Следующая глава
+            </Button>
           )}
-        </div>
+        </S.FooterInner>
 
-        <div className={classes.footer__copyright}>
+        <S.FooterCopyright>
           <p>Автор книги: Валентин Кротов</p>
-        </div>
-      </div>
-    </section>
+        </S.FooterCopyright>
+      </S.Footer>
+    </S.Container>
   );
 }
 
