@@ -22,8 +22,7 @@ type AppPropsWithLayout = AppProps & {
 
 NProgress.configure({ showSpinner: false });
 
-// eslint-disable-next-line import/no-default-export
-export default function App({ Component, pageProps }: AppPropsWithLayout) {
+const CustomApp = ({ Component, pageProps }: AppPropsWithLayout) => {
   const router = useRouter();
 
   useEffect(() => {
@@ -62,4 +61,7 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
       </AnimatePresence>
     </>
   );
-}
+};
+
+// eslint-disable-next-line import/no-default-export
+export default CustomApp;
