@@ -9,24 +9,24 @@ const variants = {
   exit: { opacity: 0 },
 };
 
-// eslint-disable-next-line import/no-default-export
-export default function AtmospherePage() {
-  return (
-    <motion.div
-      className={S.container}
-      initial="hidden"
-      animate="enter"
-      exit="exit"
-      variants={variants}
-      transition={{ type: 'linear' }}
-    >
-      <S.TextContainer>
-        <S.Title>Это гайд по вселенной «Контроль Хаоса»</S.Title>
+const AtmospherePage = () => (
+  <motion.div
+    className={S.container}
+    initial="hidden"
+    animate="enter"
+    exit="exit"
+    variants={variants}
+    transition={{ type: 'linear' }}
+  >
+    <S.TextContainer>
+      <S.Title>Это гайд по вселенной «Контроль Хаоса»</S.Title>
 
-        <S.Text>Здесь вы найдете всю информацию по книге</S.Text>
-      </S.TextContainer>
-    </motion.div>
-  );
-}
+      <S.Text>Здесь вы найдете всю информацию по книге</S.Text>
+    </S.TextContainer>
+  </motion.div>
+);
 
 AtmospherePage.getLayout = getAtmosphereLayout;
+
+// eslint-disable-next-line import/no-default-export
+export default AtmospherePage;

@@ -27,21 +27,21 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   };
 };
 
-// eslint-disable-next-line import/no-default-export
-export default function GroupPage({ group }: Props) {
-  return (
-    <S.Container>
-      <S.Head>
-        <h1>{group.title}</h1>
+const GroupPage = ({ group }: Props) => (
+  <S.Container>
+    <S.Head>
+      <h1>{group.title}</h1>
 
-        <S.Subtitle>{group.subtitle}</S.Subtitle>
-      </S.Head>
+      <S.Subtitle>{group.subtitle}</S.Subtitle>
+    </S.Head>
 
-      {group.coverImage && <Image src={group.coverImage.url} height={3} />}
+    {group.coverImage && <Image src={group.coverImage.url} height={3} />}
 
-      <Markdown className={S.description}>{group.description}</Markdown>
-    </S.Container>
-  );
-}
+    <Markdown className={S.description}>{group.description}</Markdown>
+  </S.Container>
+);
 
 GroupPage.getLayout = getAtmosphereWithSidebarLayout;
+
+// eslint-disable-next-line import/no-default-export
+export default GroupPage;

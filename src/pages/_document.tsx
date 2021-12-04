@@ -50,11 +50,11 @@ export default class CustomDocument extends Document {
       <Html lang="ru">
         <Head>
           <meta name="theme-color" content="#0b0b0b" />
-          <link rel="icon" href="/favicon.svg" />
+          <link rel="icon" href="/icons/favicon.svg" />
           <link
             rel="apple-touch-icon"
             sizes="180x180"
-            href="/apple-touch-icon.png"
+            href="/icons/apple-touch-icon.png"
           />
           <link rel="manifest" href="/manifest.webmanifest" />
           <link rel="preconnect" href="https://fonts.googleapis.com" />

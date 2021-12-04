@@ -11,7 +11,7 @@ import * as S from '~shared/styles/ReadPage.styles';
 import { Button, Image, Markdown } from '~shared/ui';
 import {
   BookmarkIcon,
-  ChevronRightIcon,
+  ChevronIcon,
   DayIcon,
   LocationIcon,
   TimeIcon,
@@ -48,11 +48,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   };
 };
 
-// eslint-disable-next-line import/no-default-export
-export default function ReadChapterPage({
-  nextChapterSlug,
-  currentChapter,
-}: Props) {
+const ReadChapterPage = ({ nextChapterSlug, currentChapter }: Props) => {
   const { scrollPercentY } = useWindowScroll();
 
   useKeepReading();
@@ -90,7 +86,7 @@ export default function ReadChapterPage({
         {currentChapter?.placeOfAction && (
           <S.Location>
             <S.LocationIcons>
-              <TimeIcon />
+              <TimeIcon filled />
               <LocationIcon />
             </S.LocationIcons>
 
@@ -110,7 +106,7 @@ export default function ReadChapterPage({
             <S.FooterShare>
               <Button accessoryStart={<BookmarkIcon />} />
 
-              <Button accessoryStart={<BookmarkIcon />} />
+              <Button accessoryStart={<BookmarkIcon filled />} />
             </S.FooterShare>
           </S.FooterLeft>
 
@@ -118,7 +114,7 @@ export default function ReadChapterPage({
             <Button
               href={`/read/${nextChapterSlug}`}
               variant="filled"
-              accessoryEnd={<ChevronRightIcon />}
+              accessoryEnd={<ChevronIcon right />}
             >
               Следующая глава
             </Button>
@@ -131,6 +127,9 @@ export default function ReadChapterPage({
       </S.Footer>
     </S.Container>
   );
-}
+};
 
 ReadChapterPage.getLayout = getReaderLayout;
+
+// eslint-disable-next-line import/no-default-export
+export default ReadChapterPage;

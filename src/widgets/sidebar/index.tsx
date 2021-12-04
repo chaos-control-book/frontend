@@ -1,7 +1,7 @@
 import { CSSProperties, ReactElement } from 'react';
 
 import { Button } from '~shared/ui';
-import { ChevronLeftIcon } from '~shared/ui/icons';
+import { ChevronIcon } from '~shared/ui/icons';
 
 import * as S from './styles';
 
@@ -25,7 +25,7 @@ export const Sidebar = ({
       {showBackButton && (
         <Button
           href="/"
-          accessoryStart={<ChevronLeftIcon />}
+          accessoryStart={<ChevronIcon left />}
           className={S.backButton}
         >
           Вернуться на сайт

@@ -9,15 +9,15 @@ export const getServerSideProps: GetServerSideProps = async () => {
 
   return {
     redirect: {
-      destination: `atmosphere/groups/${slug}`,
+      destination: `/atmosphere/groups/${slug}`,
       permanent: false,
     },
   };
 };
 
-// eslint-disable-next-line import/no-default-export
-export default function GroupPage(): JSX.Element {
-  return <></>;
-}
+const GroupPage = () => undefined;
 
 GroupPage.getLayout = getAtmosphereWithSidebarLayout;
+
+// eslint-disable-next-line import/no-default-export
+export default GroupPage;

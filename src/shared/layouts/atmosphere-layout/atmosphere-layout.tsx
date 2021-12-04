@@ -8,27 +8,27 @@ import * as S from './styles';
 
 const routes: Route[] = [
   {
-    href: 'atmosphere/characters',
+    href: '/atmosphere/characters',
     label: 'Персонажи',
   },
   {
-    href: 'atmosphere/groups',
+    href: '/atmosphere/groups',
     label: 'Группировки',
   },
   {
-    href: 'atmosphere/races',
+    href: '/atmosphere/races',
     label: 'Расы',
   },
   {
-    href: 'atmosphere/maps',
+    href: '/atmosphere/maps',
     label: 'Карты',
   },
   {
-    href: 'atmosphere/events',
+    href: '/atmosphere/events',
     label: 'События',
   },
   {
-    href: 'atmosphere/chronology',
+    href: '/atmosphere/chronology',
     label: 'Хронология',
   },
 ];

@@ -8,13 +8,13 @@ export const getServerSideProps: GetServerSideProps = async () => {
 
   return {
     redirect: {
-      destination: `read/${slug}`,
+      destination: `/read/${slug}`,
       permanent: false,
     },
   };
 };
 
+const ReadPage = () => undefined;
+
 // eslint-disable-next-line import/no-default-export
-export default function ReadPage() {
-  return <></>;
-}
+export default ReadPage;
