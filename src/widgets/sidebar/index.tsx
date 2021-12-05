@@ -16,11 +16,11 @@ interface Props {
 export const Sidebar = ({
   renderMenu,
   showBackButton,
-  className,
   wrapperClassName,
-  style,
+  ...props
 }: Props): JSX.Element => (
-  <S.Container className={className} style={style}>
+  // eslint-disable-next-line react/jsx-props-no-spreading
+  <S.Container {...props}>
     <S.Wrapper className={wrapperClassName}>
       {showBackButton && (
         <Button

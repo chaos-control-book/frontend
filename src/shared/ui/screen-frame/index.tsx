@@ -1,4 +1,4 @@
-import { CSSProperties, ReactNode } from 'react';
+import { CSSProperties, ReactElement, ReactNode } from 'react';
 
 import { cx } from '@emotion/css';
 
@@ -7,19 +7,19 @@ import * as S from './styles';
 interface Props {
   contentTopArea?: ReactNode;
   contentBottomArea?: ReactNode;
-  style?: CSSProperties;
+  children?: ReactElement;
   className?: string;
-  children?: ReactNode;
+  style?: CSSProperties;
 }
 
 export const ScreenFrame = ({
   contentTopArea,
   contentBottomArea,
-  style,
-  className,
   children,
+  ...props
 }: Props): JSX.Element => (
-  <S.Container className={className} style={style}>
+  // eslint-disable-next-line react/jsx-props-no-spreading
+  <S.Container {...props}>
     <S.TopArea>{contentTopArea}</S.TopArea>
 
     <S.LeftArea />

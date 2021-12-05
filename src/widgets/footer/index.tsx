@@ -1,9 +1,17 @@
+import { CSSProperties } from 'react';
+
 import { Link } from '~shared/ui';
 
 import * as S from './styles';
 
-export const Footer = (): JSX.Element => (
-  <S.Container>
+interface Props {
+  className?: string;
+  style?: CSSProperties;
+}
+
+export const Footer = (props: Props): JSX.Element => (
+  // eslint-disable-next-line react/jsx-props-no-spreading
+  <S.Container {...props}>
     <S.LinksList>
       <S.LinksListItem>
         <Link href="https://discord.com/">

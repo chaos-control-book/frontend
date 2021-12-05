@@ -8,9 +8,8 @@ export const Button = ({
   accessoryStart,
   variant = 'text',
   href,
-  className,
   children,
-  style,
+  ...props
 }: ButtonProps): JSX.Element => {
   const renderContent = (
     <>
@@ -39,8 +38,7 @@ export const Button = ({
           accessoryStart={accessoryStart}
           accessoryEnd={accessoryEnd}
           onlyIcon={!children}
-          className={className}
-          style={style}
+          {...props} // eslint-disable-line react/jsx-props-no-spreading
         >
           {renderContent}
         </S.Container>
@@ -55,8 +53,7 @@ export const Button = ({
       accessoryStart={accessoryStart}
       accessoryEnd={accessoryEnd}
       onlyIcon={!children}
-      className={className}
-      style={style}
+      {...props} // eslint-disable-line react/jsx-props-no-spreading
     >
       {renderContent}
     </S.Container>
