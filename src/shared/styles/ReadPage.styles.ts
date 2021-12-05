@@ -96,18 +96,6 @@ export const FooterInner = styled.div`
   justify-content: space-between;
 `;
 
-export const FooterLeft = styled.div`
-  display: flex;
-  align-items: center;
-`;
-
-export const FooterShare = styled.div`
-  display: flex;
-  align-items: center;
-  gap: ${space(0.5)};
-  margin-left: ${space(2)};
-`;
-
 export const FooterCopyright = styled.div`
   ${textFont(rem(10))};
   margin-top: ${space(2.5)};

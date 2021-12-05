@@ -1,7 +1,8 @@
 import { GetServerSideProps } from 'next';
 
-import { getGroups } from '~shared/api/groups';
-import { getAtmosphereWithSidebarLayout } from '~shared/layouts/atmosphere-with-sidebar-layout';
+import { getGroups } from '~entities/group';
+
+import { PAGES_URLS } from '~shared/config/urls';
 
 export const getServerSideProps: GetServerSideProps = async () => {
   const groups = await getGroups();
@@ -9,15 +10,13 @@ export const getServerSideProps: GetServerSideProps = async () => {
 
   return {
     redirect: {
-      destination: `/atmosphere/groups/${slug}`,
+      destination: `${PAGES_URLS.ATMOSPHERE.GROUPS}/${slug}`,
       permanent: false,
     },
   };
 };
 
 const GroupPage = () => undefined;
-
-GroupPage.getLayout = getAtmosphereWithSidebarLayout;
 
 // eslint-disable-next-line import/no-default-export
 export default GroupPage;

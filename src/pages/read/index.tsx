@@ -1,6 +1,8 @@
 import { GetServerSideProps } from 'next';
 
-import { getChapters } from '~shared/api/chapter';
+import { getChapters } from '~entities/chapter';
+
+import { PAGES_URLS } from '~shared/config/urls';
 
 export const getServerSideProps: GetServerSideProps = async () => {
   const chapters = await getChapters();
@@ -8,7 +10,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
 
   return {
     redirect: {
-      destination: `/read/${slug}`,
+      destination: `${PAGES_URLS.READ}/${slug}`,
       permanent: false,
     },
   };

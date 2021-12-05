@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 
-import { getAtmosphereLayout } from '~shared/layouts/atmosphere-layout';
+import { getLayout } from '~layouts/atmosphere-layout';
+
 import * as S from '~shared/styles/AtmospherePage.styles';
 
 const variants = {
@@ -26,7 +27,7 @@ const AtmospherePage = () => (
   </motion.div>
 );
 
-AtmospherePage.getLayout = getAtmosphereLayout;
+AtmospherePage.getLayout = getLayout;
 
 // eslint-disable-next-line import/no-default-export
 export default AtmospherePage;

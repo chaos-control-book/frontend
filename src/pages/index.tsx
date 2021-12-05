@@ -2,7 +2,9 @@ import Head from 'next/head';
 
 import { motion } from 'framer-motion';
 
-import { getMainLayout } from '~shared/layouts/main-layout';
+import { getLayout } from '~layouts/main-layout';
+
+import { PAGES_URLS } from '~shared/config/urls';
 import * as S from '~shared/styles/HomePage.styles';
 import { Link } from '~shared/ui';
 
@@ -26,7 +28,7 @@ const HomePage = () => (
       variants={variants}
       transition={{ type: 'linear' }}
     >
-      <Link href="/read" activeClassName="">
+      <Link href={PAGES_URLS.READ} activeClassName="">
         <S.LeftArea backgroundColor="rgba(177, 177, 177, 0.2)">
           <span>Читать книгу</span>
         </S.LeftArea>
@@ -34,7 +36,7 @@ const HomePage = () => (
 
       <S.Separator>или</S.Separator>
 
-      <Link href="/atmosphere" activeClassName="">
+      <Link href={PAGES_URLS.ATMOSPHERE.HOME} activeClassName="">
         <S.RightArea backgroundColor="rgba(196, 196, 196, 0.2)">
           <span>Атмосфера</span>
         </S.RightArea>
@@ -43,7 +45,7 @@ const HomePage = () => (
   </>
 );
 
-HomePage.getLayout = getMainLayout;
+HomePage.getLayout = getLayout;
 
 // eslint-disable-next-line import/no-default-export
 export default HomePage;

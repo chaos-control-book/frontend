@@ -1,1 +1,0 @@
-export { ChaptersNavMenu } from './ui';

@@ -1,8 +1,10 @@
 import { GetServerSideProps } from 'next';
 
-import { getGroupBySlug } from '~shared/api/groups';
-import { Group } from '~shared/api/types';
-import { getAtmosphereWithSidebarLayout } from '~shared/layouts/atmosphere-with-sidebar-layout';
+import { getLayout } from '~layouts/atmosphere-with-sidebar-layout';
+
+import { getGroupBySlug } from '~entities/group';
+import type { Group } from '~entities/group';
+
 import * as S from '~shared/styles/GroupPage.styles';
 import { Image, Markdown } from '~shared/ui';
 
@@ -41,7 +43,7 @@ const GroupPage = ({ group }: Props) => (
   </S.Container>
 );
 
-GroupPage.getLayout = getAtmosphereWithSidebarLayout;
+GroupPage.getLayout = getLayout;
 
 // eslint-disable-next-line import/no-default-export
 export default GroupPage;

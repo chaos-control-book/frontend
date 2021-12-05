@@ -1,9 +1,7 @@
-export const request = async (
-  url: string,
-  params?: {
-    headers?: Record<string, string>;
-  }
-) => {
+export const request = async <T>(
+  url: RequestInfo,
+  params?: RequestInit
+): Promise<T> => {
   const defaultHeaders = {
     Authorization: `Bearer ${process.env.NEXT_PUBLIC_STRAPI_TOKEN}`,
     'Content-Type': 'application/json',
@@ -24,5 +22,11 @@ export const request = async (
   return fetch(`${normalizedUrl}${url}`, {
     ...params,
     headers: { ...defaultHeaders, ...params?.headers },
-  }).then((r) => r.json());
+  }).then((r) => {
+    if (!r.ok) {
+      throw new Error(r.statusText);
+    }
+
+    return r.json() as Promise<T>;
+  });
 };

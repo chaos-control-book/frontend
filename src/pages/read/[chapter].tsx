@@ -1,11 +1,14 @@
 import { GetServerSideProps } from 'next';
 
-import { useKeepReading } from '~features/keep-reading';
+import { getLayout } from '~layouts/reader-layout';
 
-import { getChapters } from '~shared/api/chapter';
-import { Chapter } from '~shared/api/types';
+import { ShareChapter, useChapterKeepReading } from '~features/chapters';
+
+import { getChapters } from '~entities/chapter';
+import type { Chapter } from '~entities/chapter';
+
+import { PAGES_URLS } from '~shared/config/urls';
 import { useWindowScroll } from '~shared/hooks';
-import { getReaderLayout } from '~shared/layouts/reader-layout';
 import { intToRoman } from '~shared/lib/convert';
 import * as S from '~shared/styles/ReadPage.styles';
 import { Button, Image, Markdown } from '~shared/ui';
@@ -51,7 +54,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 const ReadChapterPage = ({ nextChapterSlug, currentChapter }: Props) => {
   const { scrollPercentY } = useWindowScroll();
 
-  useKeepReading();
+  useChapterKeepReading();
 
   return (
     <S.Container>
@@ -101,18 +104,11 @@ const ReadChapterPage = ({ nextChapterSlug, currentChapter }: Props) => {
 
       <S.Footer>
         <S.FooterInner>
-          <S.FooterLeft>
-            <p>Поделиться главой</p>
-            <S.FooterShare>
-              <Button accessoryStart={<BookmarkIcon />} />
-
-              <Button accessoryStart={<BookmarkIcon filled />} />
-            </S.FooterShare>
-          </S.FooterLeft>
+          <ShareChapter />
 
           {nextChapterSlug && (
             <Button
-              href={`/read/${nextChapterSlug}`}
+              href={`${PAGES_URLS.READ}/${nextChapterSlug}`}
               variant="filled"
               accessoryEnd={<ChevronIcon right />}
             >
@@ -129,7 +125,7 @@ const ReadChapterPage = ({ nextChapterSlug, currentChapter }: Props) => {
   );
 };
 
-ReadChapterPage.getLayout = getReaderLayout;
+ReadChapterPage.getLayout = getLayout;
 
 // eslint-disable-next-line import/no-default-export
 export default ReadChapterPage;

@@ -1,5 +1,5 @@
-import { SkeletonMenu } from './skeleton-menu';
+import { SidebarMenu } from './sidebar-menu';
 
 export const Skeleton = {
-  Menu: SkeletonMenu,
+  SidebarMenu,
 };

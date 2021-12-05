@@ -14,10 +14,10 @@ interface Props {
 export const Navigation = ({
   routes,
   size = 'medium',
-  className,
-  style,
+  ...props
 }: Props): JSX.Element => (
-  <S.Container size={size} className={className} style={style}>
+  // eslint-disable-next-line react/jsx-props-no-spreading
+  <S.Container size={size} {...props}>
     <S.List>
       {routes.map(({ href, label, exact = false }) => (
         <S.ListItem key={label} size={size}>
