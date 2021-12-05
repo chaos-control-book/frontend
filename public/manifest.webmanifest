@@ -1,12 +1,12 @@
 {
+    "name": "Книга «Контроль Хаоса»",
+    "short_name": "Контроль Хаоса",
     "theme_color": "#21caff",
     "background_color": "#0b0b0b",
     "display": "fullscreen",
+    "orientation": "portrait",
     "scope": "/",
     "start_url": "/",
-    "name": "Книга «Контроль Хаоса»",
-    "short_name": "Контроль Хаоса",
-    "description": "Контроль Хаоса",
     "icons": [
         { "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
         { "src": "/icons/icon-256.png", "sizes": "256x256", "type": "image/png" },
