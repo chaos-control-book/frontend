@@ -20,8 +20,6 @@ COPY . .
 
 COPY --from=deps /usr/src/frontend/node_modules ./node_modules
 
-#RUN yarn build
-
 # Production image, copy all the files and run next
 FROM node:16-alpine AS runner
 
@@ -37,8 +35,6 @@ RUN adduser -S nextjs -u 1001
 COPY --from=builder /usr/src/frontend/next.config.js ./
 
 COPY --from=builder /usr/src/frontend/public ./public
-
-#COPY --from=builder --chown=nextjs:nodejs /usr/src/frontend/.next ./.next
 
 RUN mkdir ./.next && chown -R nextjs:nodejs ./.next
 

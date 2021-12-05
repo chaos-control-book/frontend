@@ -5,7 +5,8 @@
 .dockerignore
 .next/
 node_modules
-Dockerfile
+development.Dockerfile
+production.Dockerfile
 LICENSE
 README.md
 tsconfig.tsbuildinfo
