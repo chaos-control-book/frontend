@@ -30,8 +30,11 @@
           ["/^react$/", "/^react/.+$/"],
           ["/^next$/", "/^next/.+$/"],
           "module",
+          "/^~processes/",
+          "/^~layouts/",
           "/^~widgets/",
           "/^~features/",
+          "/^~entities/",
           "/^~shared/",
           ["parent", "sibling", "index"]
         ],
