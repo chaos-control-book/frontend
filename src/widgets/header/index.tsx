@@ -3,8 +3,7 @@ import { CSSProperties, ReactElement } from 'react';
 import { ChapterKeepReading } from '~features/chapters';
 
 import { PAGES_URLS } from '~shared/config/urls';
-import { Button, Logo, Navigation } from '~shared/ui';
-import { LikeIcon } from '~shared/ui/icons';
+import { Logo, Navigation } from '~shared/ui';
 
 import * as S from './styles';
 
@@ -31,7 +30,6 @@ const routes: Route[] = [
 ];
 
 export const Header = ({ contentActions, ...props }: Props): JSX.Element => (
-  // eslint-disable-next-line react/jsx-props-no-spreading
   <S.Container {...props}>
     <Logo />
 
@@ -39,14 +37,12 @@ export const Header = ({ contentActions, ...props }: Props): JSX.Element => (
 
     <S.Actions>
       {contentActions ?? (
-        <>
-          <ChapterKeepReading />
+        <ChapterKeepReading />
 
-          <Button
-            accessoryStart={<LikeIcon />}
-            className={S.actionsLikeButton}
-          />
-        </>
+        // <Button
+        //   accessoryStart={<LikeIcon />}
+        //   className={S.actionsLikeButton}
+        // />
       )}
     </S.Actions>
   </S.Container>

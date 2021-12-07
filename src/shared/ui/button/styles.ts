@@ -36,7 +36,7 @@ export const Container = styled.button<ButtonProps & { onlyIcon: boolean }>`
   })};
 
   &:hover {
-    color: var(--color-text-tertiary);
+    color: var(--color-text-faint);
   }
 
   &:active {
@@ -52,6 +52,8 @@ export const Container = styled.button<ButtonProps & { onlyIcon: boolean }>`
 `;
 
 export const Text = styled.span`
+  display: inline-flex;
+  align-items: center;
   pointer-events: none;
 `;
 

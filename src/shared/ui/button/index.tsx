@@ -38,7 +38,7 @@ export const Button = ({
           accessoryStart={accessoryStart}
           accessoryEnd={accessoryEnd}
           onlyIcon={!children}
-          {...props} // eslint-disable-line react/jsx-props-no-spreading
+          {...props}
         >
           {renderContent}
         </S.Container>
@@ -53,7 +53,7 @@ export const Button = ({
       accessoryStart={accessoryStart}
       accessoryEnd={accessoryEnd}
       onlyIcon={!children}
-      {...props} // eslint-disable-line react/jsx-props-no-spreading
+      {...props}
     >
       {renderContent}
     </S.Container>

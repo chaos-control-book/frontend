@@ -1,22 +1,16 @@
 import { Button } from '~shared/ui';
-import { BookmarkIcon } from '~shared/ui/icons';
+import { LinkIcon, VkIcon } from '~shared/ui/icons';
 
 import * as S from './styles';
 
-// type Urls = Record<'link1' | 'link2', string>;
-
-// interface Props {
-//   urls: Urls;
-// }
-
 export const Share = (): JSX.Element => (
   <S.Container>
-    <p>Поделиться главой</p>
+    <S.Text>Поделиться главой</S.Text>
 
     <S.Actions>
-      <Button accessoryStart={<BookmarkIcon />} />
+      <Button accessoryStart={<LinkIcon />} />
 
-      <Button accessoryStart={<BookmarkIcon filled />} />
+      <Button accessoryStart={<VkIcon />} />
     </S.Actions>
   </S.Container>
 );

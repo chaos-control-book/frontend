@@ -58,7 +58,7 @@ const ReadChapterPage = ({ nextChapterSlug, currentChapter }: Props) => {
 
   return (
     <S.Container>
-      <S.Header isMini={scrollPercentY > 20}>
+      <S.Header $isMini={scrollPercentY > 20}>
         {currentChapter?.title && (
           <S.HeaderTitle>
             {currentChapter?.number && (

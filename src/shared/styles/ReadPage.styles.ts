@@ -14,7 +14,7 @@ export const Container = styled.section`
 `;
 
 export const Header = styled.header<{
-  isMini: boolean;
+  $isMini: boolean;
 }>`
   ${animation('padding', 300)};
 
@@ -31,8 +31,8 @@ export const Header = styled.header<{
   background-color: var(--color-root-base);
   will-change: padding-top, padding-bottom;
 
-  ${({ isMini }) =>
-    isMini &&
+  ${({ $isMini }) =>
+    $isMini &&
     `
     padding-top: ${space(3.5)};
     padding-bottom: ${space(3.5)};

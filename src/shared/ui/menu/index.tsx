@@ -10,7 +10,6 @@ interface Props {
 }
 
 export const Menu = ({ children, ...props }: Props): JSX.Element => (
-  // eslint-disable-next-line react/jsx-props-no-spreading
   <S.Container {...props}>{children}</S.Container>
 );
 

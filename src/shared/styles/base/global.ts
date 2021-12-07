@@ -22,5 +22,10 @@ export const globalStyles = css`
     fill: currentColor;
     pointer-events: none;
     user-select: none;
+
+    &--stroke {
+      fill: transparent;
+      stroke: currentColor;
+    }
   }
 `;

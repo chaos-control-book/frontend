@@ -25,6 +25,6 @@ export const Image = ({
     height={height ?? 9}
     objectFit={objectFit ?? 'cover'}
     priority
-    {...props} // eslint-disable-line react/jsx-props-no-spreading
+    {...props}
   />
 );

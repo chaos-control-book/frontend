@@ -19,7 +19,6 @@ export const Sidebar = ({
   wrapperClassName,
   ...props
 }: Props): JSX.Element => (
-  // eslint-disable-next-line react/jsx-props-no-spreading
   <S.Container {...props}>
     <S.Wrapper className={wrapperClassName}>
       {showBackButton && (

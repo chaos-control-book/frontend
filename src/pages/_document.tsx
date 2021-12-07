@@ -49,7 +49,16 @@ export default class CustomDocument extends Document {
     return (
       <Html lang="ru">
         <Head>
-          <meta name="theme-color" content="#0b0b0b" />
+          <meta
+            name="theme-color"
+            content="#0b0b0b"
+            media="(prefers-color-scheme: light)"
+          />
+          <meta
+            name="theme-color"
+            content="#0b0b0b"
+            media="(prefers-color-scheme: dark)"
+          />
           <link rel="icon" href="/icons/favicon.svg" />
           <link
             rel="apple-touch-icon"

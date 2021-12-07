@@ -16,7 +16,6 @@ export const Navigation = ({
   size = 'medium',
   ...props
 }: Props): JSX.Element => (
-  // eslint-disable-next-line react/jsx-props-no-spreading
   <S.Container size={size} {...props}>
     <S.List>
       {routes.map(({ href, label, exact = false }) => (

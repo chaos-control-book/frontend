@@ -1,6 +1,7 @@
 import { CSSProperties } from 'react';
 
-import { Link } from '~shared/ui';
+import { Button } from '~shared/ui';
+import { DiscordIcon, VkIcon } from '~shared/ui/icons';
 
 import * as S from './styles';
 
@@ -10,19 +11,22 @@ interface Props {
 }
 
 export const Footer = (props: Props): JSX.Element => (
-  // eslint-disable-next-line react/jsx-props-no-spreading
   <S.Container {...props}>
     <S.LinksList>
       <S.LinksListItem>
-        <Link href="https://discord.com/">
-          <a target="_blank">Discord</a>
-        </Link>
+        <Button
+          href="https://vk.com/"
+          target="_blank"
+          accessoryStart={<VkIcon />}
+        />
       </S.LinksListItem>
 
       <S.LinksListItem>
-        <Link href="https://vk.com/">
-          <a target="_blank">Vkontakte</a>
-        </Link>
+        <Button
+          href="https://discord.com/"
+          target="_blank"
+          accessoryStart={<DiscordIcon />}
+        />
       </S.LinksListItem>
     </S.LinksList>
   </S.Container>

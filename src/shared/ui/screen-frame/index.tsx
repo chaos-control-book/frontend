@@ -18,7 +18,6 @@ export const ScreenFrame = ({
   children,
   ...props
 }: Props): JSX.Element => (
-  // eslint-disable-next-line react/jsx-props-no-spreading
   <S.Container {...props}>
     <S.TopArea>{contentTopArea}</S.TopArea>
 

@@ -13,14 +13,16 @@ export const Container = styled.footer`
 export const LinksList = styled.ul`
   display: flex;
   align-items: center;
-  gap: ${space(2)};
   height: 100%;
   margin-left: auto;
 `;
 
 export const LinksListItem = styled.li`
+  display: inline-flex;
+
   a {
     ${headingFont()};
+    display: inline-flex;
     color: var(--color-text-tertiary);
   }
 `;

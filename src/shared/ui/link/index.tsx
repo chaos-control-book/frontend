@@ -38,7 +38,6 @@ export const Link = ({
     : childClassName;
 
   return (
-    // eslint-disable-next-line react/jsx-props-no-spreading
     <NextLink passHref {...props}>
       {cloneElement(child, {
         className: cx(S.container, className) || null,

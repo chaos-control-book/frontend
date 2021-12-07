@@ -16,7 +16,6 @@ export const MenuItem = ({
   children,
   ...props
 }: Props): JSX.Element => (
-  // eslint-disable-next-line react/jsx-props-no-spreading
   <S.Container {...props}>
     {accessoryStart && (
       <S.Accessory position="start">{accessoryStart}</S.Accessory>

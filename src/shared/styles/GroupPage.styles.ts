@@ -22,6 +22,7 @@ export const Head = styled.div`
 
 export const Subtitle = styled.p`
   margin-top: ${space(2)};
+  color: var(--color-text-accent);
 `;
 
 export const description = css`

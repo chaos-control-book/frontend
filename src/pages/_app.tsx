@@ -56,7 +56,6 @@ const CustomApp = ({ Component, pageProps }: AppPropsWithLayout) => {
         initial={false}
         onExitComplete={() => window.scrollTo(0, 0)}
       >
-        {/* eslint-disable-next-line react/jsx-props-no-spreading */}
         {getLayout(<Component {...pageProps} />)}
       </AnimatePresence>
     </>

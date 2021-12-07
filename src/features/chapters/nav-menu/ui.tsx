@@ -37,5 +37,5 @@ export const NavMenu = (): JSX.Element => {
     );
   };
 
-  return <S.Menu $hidden={scrollPercentY > 35}>{renderNavContent()}</S.Menu>;
+  return <S.Menu $hidden={scrollPercentY > 20}>{renderNavContent()}</S.Menu>;
 };
