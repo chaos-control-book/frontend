@@ -1,9 +1,9 @@
-.idea/
-.vscode/
-.git/
+.idea
+.vscode
+.git
 .gitignore
 .dockerignore
-.next/
+.next
 node_modules
 development.Dockerfile
 production.Dockerfile
