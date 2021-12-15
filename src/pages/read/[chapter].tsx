@@ -1,8 +1,14 @@
+import { useEffect } from 'react';
+
 import { GetServerSideProps } from 'next';
 
 import { getLayout } from '~layouts/reader-layout';
 
-import { ShareChapter, useChapterKeepReading } from '~features/chapters';
+import {
+  ShareChapter,
+  useChapterKeepReadingIndentTop,
+  useChapterKeepReadingLastSlug,
+} from '~features/chapters';
 
 import { getChapters } from '~entities/chapter';
 import type { Chapter } from '~entities/chapter';
@@ -54,7 +60,14 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 const ReadChapterPage = ({ nextChapterSlug, currentChapter }: Props) => {
   const { scrollPercentY } = useWindowScroll();
 
-  useChapterKeepReading();
+  useChapterKeepReadingLastSlug();
+  const { getIndentTop } = useChapterKeepReadingIndentTop();
+
+  useEffect(() => {
+    window.scrollTo({
+      top: getIndentTop(),
+    });
+  }, []);
 
   return (
     <S.Container>

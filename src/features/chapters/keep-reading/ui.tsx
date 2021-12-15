@@ -1,17 +1,17 @@
 import { PAGES_URLS } from '~shared/config/urls';
 import { Button } from '~shared/ui';
 
-import { useKeepReading } from './model';
+import { useLastSlug } from './model/useLastSlug';
 
 export const KeepReading = () => {
-  const { storedChapterSlug } = useKeepReading();
+  const { chapterSlug } = useLastSlug();
 
-  if (!storedChapterSlug) {
+  if (!chapterSlug) {
     return null;
   }
 
   return (
-    <Button href={`${PAGES_URLS.READ}/${storedChapterSlug}`}>
+    <Button href={`${PAGES_URLS.READ}/${chapterSlug}`}>
       Продолжить читать
     </Button>
   );
