@@ -24,14 +24,15 @@ export function useWindowScroll(fps = 30) {
       },
     } = document;
 
-    const percentY = (scrollTop / (scrollHeight - clientHeight)) * 100;
-    const percentX = (scrollLeft / (scrollWidth - clientWidth)) * 100;
+    const percentY = (scrollTop / (scrollHeight - clientHeight)) * 100 || 0;
+
+    const percentX = (scrollLeft / (scrollWidth - clientWidth)) * 100 || 0;
 
     setScrollY(scrollTop);
-    setScrollPercentY(percentY);
+    setScrollPercentY(Math.floor(percentY));
 
     setScrollX(scrollLeft);
-    setScrollPercentX(percentX);
+    setScrollPercentX(Math.floor(percentX));
   };
 
   // Create event listener that calls updater handler with throttle
